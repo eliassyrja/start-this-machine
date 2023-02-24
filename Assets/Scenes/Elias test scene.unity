@@ -372,5 +372,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 90
-  upperAngleLimit: 32
-  lowerAngleLimit: -50

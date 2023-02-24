@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
         //Adds new values to movement variables.
         //Vertical movement is inverted for some reason, so negative value is used to un invert! :D
         horizontalMovement += horizontal;
-        verticalMovement += -vertical;
+        verticalMovement -= vertical;
 
         //Restricts camera movement from crossing certain points on the screen.
         horizontalMovement = Mathf.Clamp(horizontalMovement, rightAngleLimit, leftAngleLimit);
