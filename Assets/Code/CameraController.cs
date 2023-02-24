@@ -20,31 +20,45 @@ public class CameraController : MonoBehaviour
     private float horizontalMovement = 0f;
     private float verticalMovement = 0f;
 
+    //Keycodes to move and zoom functionality.
+    [SerializeField] private KeyCode moveKey = KeyCode.Mouse1;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Locks cursor into game, and hides default mouse pointer.
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Gets variables for changing horizontal and vertical movement
-        var horizontal = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
-        var vertical = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
 
-        //Adds new values to movement variables.
-        //Vertical movement is inverted for some reason, so negative value is used to un invert! :D
-        horizontalMovement += horizontal;
-        verticalMovement -= vertical;
+        if (Input.GetKey(moveKey)) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
-        //Restricts camera movement from crossing certain points on the screen.
-        horizontalMovement = Mathf.Clamp(horizontalMovement, rightAngleLimit, leftAngleLimit);
-        verticalMovement = Mathf.Clamp(verticalMovement, ceilingAngleLimit, floorAngleLimit);
+            //Gets variables for changing horizontal and vertical movement
+            var horizontal = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
+            var vertical = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
 
-        //Transform camera angle based on mouse movement.
-        transform.eulerAngles = new Vector3(verticalMovement, horizontalMovement, 0.0f);
+            //Adds new values to movement variables.
+            //Vertical movement is inverted for some reason, so negative value is used to un invert! :D
+            horizontalMovement += horizontal;
+            verticalMovement -= vertical;
+
+            //Restricts camera movement from crossing certain points on the screen.
+            horizontalMovement = Mathf.Clamp(horizontalMovement, rightAngleLimit, leftAngleLimit);
+            verticalMovement = Mathf.Clamp(verticalMovement, ceilingAngleLimit, floorAngleLimit);
+
+            //Transform camera angle based on mouse movement.
+            transform.eulerAngles = new Vector3(verticalMovement, horizontalMovement, 0.0f);
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
     }
 }
