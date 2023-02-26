@@ -9,19 +9,26 @@ public class CameraController : MonoBehaviour
 
     //Variables to restrict camera from looking too far down or up.
     //For some reason Unity mouse is inverted??
-    private readonly float floorAngleLimit = 15f;
-    private readonly float ceilingAngleLimit = -25f;
+    private float floorAngleLimit = 15.0f;
+    private float ceilingAngleLimit = -25.0f;
 
     //Variables to restrict camera from looking too far left or right.
-    private readonly float leftAngleLimit = 35f;
-    private readonly float rightAngleLimit = -35f;
+    private float leftAngleLimit = 35.0f;
+    private float rightAngleLimit = -35.0f;
 
     //Variables for horizontal and vertical movement.
-    private float horizontalMovement = 0f;
-    private float verticalMovement = 0f;
+    private float horizontalMovement = 0.0f;
+    private float verticalMovement = 0.0f;
+
+    //Variables needed for zooming to mouse pointer.
+    private float minFov = 15.0f;
+    private float maxFov = 90.0f;
+    private float zoomSpeed = 50.0f;
+    private float fov;
+
 
     //Keycodes to move and zoom functionality.
-    [SerializeField] private KeyCode moveKey = KeyCode.Mouse1;
+    [SerializeField] KeyCode moveKey = KeyCode.Mouse1;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +40,15 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleCameraMovement();
+        Zoom();
+    }
 
-        if (Input.GetKey(moveKey)) {
+    private void HandleCameraMovement()
+    {
+        if (Input.GetKey(moveKey))
+        {
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
@@ -59,6 +73,13 @@ public class CameraController : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
         }
+    }
 
+    private void Zoom()
+    {
+        fov = Camera.main.fieldOfView;
+        fov += (Input.GetAxis("Mouse ScrollWheel") * zoomSpeed) * -1;
+        fov = Mathf.Clamp(fov, minFov, maxFov);
+        Camera.main.fieldOfView = fov;
     }
 }
