@@ -7,6 +7,8 @@ public class InteractableObject : MonoBehaviour
 {
     [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0;
 
+    bool isActivated = false;
+
     public void OnMouseOver()
     {
         if (Input.GetKeyDown(interactionKey))
@@ -17,7 +19,16 @@ public class InteractableObject : MonoBehaviour
     }
     public void Interact()
     {
-        this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
+        isActivated = !isActivated;
+
+        if (isActivated)
+        {
+            this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
+            Debug.LogFormat("{0} has been interacted with!", this);
+            return;
+        }
+        this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
         Debug.LogFormat("{0} has been interacted with!", this);
+        return;
     }
 }
