@@ -9,16 +9,16 @@ public class CameraController : MonoBehaviour
 
     //Variables to restrict camera from looking too far down or up.
     //For some reason Unity mouse is inverted??
-    private float floorAngleLimit = 15.0f;
-    private float ceilingAngleLimit = -25.0f;
+    [SerializeField] private float floorAngleLimit = 15.0f;
+    [SerializeField] private float ceilingAngleLimit = -25.0f;
 
     //Variables to restrict camera from looking too far left or right.
-    private float leftAngleLimit = 35.0f;
-    private float rightAngleLimit = -35.0f;
+    [SerializeField] private float leftAngleLimit = 35.0f;
+    [SerializeField] private float rightAngleLimit = -35.0f;
 
     //Variables for horizontal and vertical movement.
-    private float horizontalMovement = 0.0f;
-    private float verticalMovement = 0.0f;
+    private float horizontalMovement;
+    private float verticalMovement;
 
     //Variables needed for zooming to mouse pointer.
     private float minFov = 15.0f;
@@ -80,6 +80,5 @@ public class CameraController : MonoBehaviour
         fov = Camera.main.fieldOfView;
         fov += (Input.GetAxis("Mouse ScrollWheel") * zoomSpeed) * -1;
         fov = Mathf.Clamp(fov, minFov, maxFov);
-        Camera.main.fieldOfView = fov;
     }
 }
