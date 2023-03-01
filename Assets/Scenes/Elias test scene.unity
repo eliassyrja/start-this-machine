@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf93a842aea3a9d418adbc9996f597ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 50
+  sensitivity: 5
   floorAngleLimit: 30
   ceilingAngleLimit: -50
   leftAngleLimit: 70
@@ -442,7 +442,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148690551470}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.8730176, y: 0.30536777, z: 1.489554}
@@ -733,6 +733,7 @@ GameObject:
   - component: {fileID: 3469287836881573809}
   - component: {fileID: 1711813856377447291}
   - component: {fileID: 1665364460}
+  - component: {fileID: 3469287836881573810}
   m_Layer: 0
   m_Name: Button_05
   m_TagString: Untagged
@@ -1016,6 +1017,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148690551470}
   m_Mesh: {fileID: 6866415498586528428, guid: 48c5f73ab2126f745a31677114018c9b, type: 3}
+--- !u!114 &3469287836881573810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148690551470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ae0bd181ede5b4f8af9a0b42b665b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionKey: 323
+  inspectedObject: {fileID: 919132148690551470}
+  inspectedItemScaleChange: 0.5
+  inspectionSpeed: 5
+  inspectionActive: 0
 --- !u!33 &3469287836914747400
 MeshFilter:
   m_ObjectHideFlags: 0
