@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - InspectionCamera
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Inspectable Object
   - Water
   - UI
   - 
