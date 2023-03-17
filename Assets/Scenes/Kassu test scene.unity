@@ -883,7 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 50
-  floorAngleLimit: 30
+  floorAngleLimit: 90
   ceilingAngleLimit: -50
   leftAngleLimit: 70
   rightAngleLimit: -70
