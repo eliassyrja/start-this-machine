@@ -74,8 +74,10 @@ public class InspectableObject : MonoBehaviour
 
         inspectedObject = Instantiate(originalObject, Camera.main.transform.position, new Quaternion(0, 0, 0, 0));
         inspectedObject.SetActive(true);
-        inspectedObject.transform.position += new Vector3(0, 0, 1);
+        inspectedObject.transform.position += new Vector3(0, -0.25f, 1);
         inspectedObject.transform.localScale += new Vector3(-inspectedItemScaleChange, -inspectedItemScaleChange, -inspectedItemScaleChange);
+
+        originalObject.SetActive(false);
 
         mainCamera.enabled = false;
         inspectionCamera.enabled = true;
@@ -87,6 +89,10 @@ public class InspectableObject : MonoBehaviour
         inspectionActive = false;
         mainCamera.enabled = true;
         inspectionCamera.enabled = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        originalObject.SetActive(true);
 
         Destroy(inspectedObject);
     }
