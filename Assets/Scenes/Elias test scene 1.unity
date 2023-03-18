@@ -992,7 +992,7 @@ MonoBehaviour:
   interactionKey: 323
   inspectedObject: {fileID: 888146817}
   mainCamera: {fileID: 194276949}
-  inspectionCamera: {fileID: 0}
+  inspectionCamera: {fileID: 859828905}
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 5
   inspectionActive: 0
@@ -1604,7 +1604,7 @@ MonoBehaviour:
   interactionKey: 323
   inspectedObject: {fileID: 1979730711}
   mainCamera: {fileID: 194276949}
-  inspectionCamera: {fileID: 0}
+  inspectionCamera: {fileID: 859828905}
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
   inspectionActive: 0
