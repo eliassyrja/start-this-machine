@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     private float horizontalMovement;
     private float verticalMovement;
 
+    public static bool inspectionActive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleCameraMovement();
+        if (!inspectionActive)
+        {
+            HandleCameraMovement();
+        }
+
     }
 
     private void HandleCameraMovement()
