@@ -14,16 +14,14 @@ public class InspectableObject : MonoBehaviour
 
     //Speed of object rotation.
     [SerializeField] private float inspectionSpeed;
-    [SerializeField] private bool inspectionActive = false;
 
-    private GameObject originalObject;
+    private bool inspectionActive;
     private GameObject crosshair;
     private Vector3 startingPosition;
     private Quaternion startingRotation;
 
     public void Start()
     {
-        originalObject = gameObject;
         crosshair = GameObject.Find("Crosshair");
     }
 
@@ -44,7 +42,7 @@ public class InspectableObject : MonoBehaviour
             print("Interaction attempted");
             if (!inspectionActive)
             {
-                SetUpInspection();
+                SetupInspection();
             }
         }
     }
@@ -64,40 +62,41 @@ public class InspectableObject : MonoBehaviour
             var horizontal = Input.GetAxis("Mouse X") * inspectionSpeed;
             var vertical = Input.GetAxis("Mouse Y") * inspectionSpeed;
 
-            originalObject.transform.Rotate(vertical, -horizontal, 0, Space.World);
+            gameObject.transform.Rotate(vertical, -horizontal, 0, Space.World);
         }
     }
 
-    private void SetUpInspection()
+    private void SetupInspection()
     {
-        print("SETUP INSPECTION CALLED");
+        Debug.Log("SetupInspection called.");
 
         startingPosition = gameObject.transform.position;
         startingRotation = gameObject.transform.rotation;
-
         inspectionActive = true;
+        CameraController.inspectionActive = true;
+
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         crosshair.SetActive(false);
 
-        originalObject.transform.position = Camera.main.transform.position + new Vector3(0, 0, 1);
-        originalObject.transform.localScale += new Vector3(-inspectedItemScaleChange, -inspectedItemScaleChange, -inspectedItemScaleChange);
+        gameObject.transform.position = Camera.main.transform.position + new Vector3(0, 0, 1);
+        gameObject.transform.localScale -= new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
 
         Camera.main.transform.rotation = new Quaternion(0, 0, 0, 0);
-        CameraController.inspectionActive = true;
     }
 
     private void EndInspection()
     {
-        print("END INSPECTION CALLED");
+        Debug.Log("EndInspection called.");
 
         inspectionActive = false;
         CameraController.inspectionActive = false;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         crosshair.SetActive(true);
 
-        originalObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
-        originalObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
+        gameObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
+        gameObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
     }
 }
