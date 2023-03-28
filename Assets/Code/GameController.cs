@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public int maxFPS;
     private Canvas pauseMenu;
     public bool pauseMenuActive;
+    public bool inspectionActive;
 
     private CrosshairController crosshairController;
 
@@ -42,6 +43,10 @@ public class GameController : MonoBehaviour
         HideCursor();
         pauseMenu.enabled = false;
         pauseMenuActive = false;
+        if (inspectionActive)
+        {
+            ShowCursor();
+        }
     }
 
     public void ShowCursor()

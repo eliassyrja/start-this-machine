@@ -16,7 +16,6 @@ public class InspectableObject : MonoBehaviour
 
     private GameController gameController;
 
-    private bool inspectionActive;
     private Vector3 startingPosition;
     private Quaternion startingRotation;
 
@@ -27,9 +26,9 @@ public class InspectableObject : MonoBehaviour
 
     public void Update()
     {
-        if (inspectionActive && gameController.pauseMenuActive == false)
+        if (gameController.inspectionActive)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && gameController.pauseMenuActive == false)
             {
                 EndInspection();
             }
@@ -40,7 +39,7 @@ public class InspectableObject : MonoBehaviour
         if (Input.GetKeyDown(interactionKey) && gameController.pauseMenuActive == false)
         {
             print("Interaction attempted");
-            if (!inspectionActive)
+            if (!gameController.inspectionActive)
             {
                 SetupInspection();
             }
@@ -49,7 +48,7 @@ public class InspectableObject : MonoBehaviour
 
     public void OnMouseDrag()
     {
-        if (inspectionActive && gameController.pauseMenuActive == false)
+        if (gameController.inspectionActive && gameController.pauseMenuActive == false)
         {
             InspectItem();
         }
@@ -72,8 +71,7 @@ public class InspectableObject : MonoBehaviour
 
         startingPosition = gameObject.transform.position;
         startingRotation = gameObject.transform.rotation;
-        inspectionActive = true;
-        CameraController.inspectionActive = true;
+        gameController.inspectionActive = true;
 
         gameController.ShowCursor();
 
@@ -87,8 +85,7 @@ public class InspectableObject : MonoBehaviour
     {
         Debug.Log("EndInspection called.");
 
-        inspectionActive = false;
-        CameraController.inspectionActive = false;
+        gameController.inspectionActive = false;
 
         gameController.HideCursor();
 

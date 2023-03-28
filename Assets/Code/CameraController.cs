@@ -20,11 +20,13 @@ public class CameraController : MonoBehaviour
     private float horizontalMovement;
     private float verticalMovement;
 
-    public static bool inspectionActive;
+    private GameController gameController;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        gameController = FindObjectOfType<GameController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -32,7 +34,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!inspectionActive)
+        if (!gameController.inspectionActive)
         {
             HandleCameraMovement();
         }

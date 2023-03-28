@@ -20,8 +20,4 @@ public class CrosshairController : MonoBehaviour
         isActive = false;
         gameObject.SetActive(false);
     }
-    public bool IsActive()
-	{
-        return isActive;
-	}
 }
