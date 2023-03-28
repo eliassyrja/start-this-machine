@@ -1855,8 +1855,8 @@ GameObject:
   - component: {fileID: 787995289300102457}
   - component: {fileID: 4723735612214999813}
   - component: {fileID: 8788927909968689214}
-  - component: {fileID: 8788927909968689217}
   - component: {fileID: 8788927909968689216}
+  - component: {fileID: 8788927909968689217}
   m_Layer: 0
   m_Name: Switch_02_high.037
   m_TagString: Untagged
@@ -1961,16 +1961,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightIndicator: {fileID: 1923201783}
---- !u!135 &8788927909968689217
-SphereCollider:
+--- !u!136 &8788927909968689217
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6354235483345432655}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06697677
-  m_Center: {x: 0.00000047006435, y: -7.200267e-10, z: 0.065336004}
+  m_Radius: 0.023297485
+  m_Height: 0.13538302
+  m_Direction: 2
+  m_Center: {x: -0.00000435073, y: 0, z: 0.07605112}
