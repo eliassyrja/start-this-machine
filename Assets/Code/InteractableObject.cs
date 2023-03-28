@@ -23,11 +23,11 @@ public class InteractableObject : MonoBehaviour
 
         if (isActivated)
         {
-            this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
+            gameObject.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
             Debug.LogFormat("{0} has been interacted with!", this);
             return;
         }
-        this.gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
+        gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
         Debug.LogFormat("{0} has been interacted with!", this);
         return;
     }

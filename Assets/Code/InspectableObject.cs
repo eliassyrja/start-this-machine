@@ -14,19 +14,20 @@ public class InspectableObject : MonoBehaviour
     //Speed of object rotation.
     [SerializeField] private float inspectionSpeed;
 
+    private GameController gameController;
+
     private bool inspectionActive;
-    private GameObject crosshair;
     private Vector3 startingPosition;
     private Quaternion startingRotation;
 
     public void Start()
     {
-        crosshair = GameObject.Find("Crosshair");
+        gameController = FindObjectOfType<GameController>();
     }
 
     public void Update()
     {
-        if (inspectionActive)
+        if (inspectionActive && gameController.pauseMenuActive == false)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -36,7 +37,7 @@ public class InspectableObject : MonoBehaviour
     }
     public void OnMouseOver()
     {
-        if (Input.GetKeyDown(interactionKey))
+        if (Input.GetKeyDown(interactionKey) && gameController.pauseMenuActive == false)
         {
             print("Interaction attempted");
             if (!inspectionActive)
@@ -48,7 +49,7 @@ public class InspectableObject : MonoBehaviour
 
     public void OnMouseDrag()
     {
-        if (inspectionActive)
+        if (inspectionActive && gameController.pauseMenuActive == false)
         {
             InspectItem();
         }
@@ -74,9 +75,7 @@ public class InspectableObject : MonoBehaviour
         inspectionActive = true;
         CameraController.inspectionActive = true;
 
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
-        crosshair.SetActive(false);
+        gameController.ShowCursor();
 
         gameObject.transform.position = Camera.main.transform.position + new Vector3(0, 0, 1);
         gameObject.transform.localScale -= new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
@@ -91,9 +90,7 @@ public class InspectableObject : MonoBehaviour
         inspectionActive = false;
         CameraController.inspectionActive = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        crosshair.SetActive(true);
+        gameController.HideCursor();
 
         gameObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
         gameObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);

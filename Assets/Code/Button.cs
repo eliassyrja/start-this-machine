@@ -6,6 +6,7 @@ public class Button : MonoBehaviour
 {
     private bool buttonState;
     private bool clickable;
+    [SerializeField]private float transitionTime;
     public Light lightIndicator;
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class Button : MonoBehaviour
             lightIndicator.color = Color.red;
             //Local rotations of the switch, current values eyeballed from editor
             //transform.localRotation = Quaternion.Euler(22, 0, 0);
-            StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), 0.5f));
+            StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), transitionTime));
             buttonState = false;
         }
 		else
@@ -42,7 +43,7 @@ public class Button : MonoBehaviour
             lightIndicator.color = Color.green;
             //Local rotations of the switch, current values eyeballed from editor
             //transform.localRotation = Quaternion.Euler(-22, 0, 0);
-            StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), 0.5f));
+            StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
             buttonState = true;
         }
         
