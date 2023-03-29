@@ -6,8 +6,8 @@ public class GameController : MonoBehaviour
 {
     public int maxFPS;
     private Canvas pauseMenu;
-    public bool pauseMenuActive;
-    public bool inspectionActive;
+    [HideInInspector] public bool pauseMenuActive;
+    [HideInInspector] public bool inspectionActive;
 
     private CrosshairController crosshairController;
 

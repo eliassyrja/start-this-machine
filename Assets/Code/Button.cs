@@ -8,10 +8,12 @@ public class Button : MonoBehaviour
     private bool clickable;
     [SerializeField]private float transitionTime;
     public Light lightIndicator;
+    private AudioController audioController;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioController = FindAnyObjectByType<AudioController>();
         //Initialize button state to be false = off
         buttonState = false;
         clickable = true;
@@ -22,11 +24,13 @@ public class Button : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Mouse0) && clickable)
 		{
             UseButton();
-		}
+        }
 	}
 
     private void UseButton()
 	{
+
+        audioController.Play("FlickSwitch");
         Debug.Log("UseButton called");
         if (buttonState)
 		{
