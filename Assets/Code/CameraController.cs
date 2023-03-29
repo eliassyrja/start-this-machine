@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameController.inspectionActive)
+        if (!gameController.inspectionActive && !gameController.pauseMenuActive)
         {
             HandleCameraMovement();
         }

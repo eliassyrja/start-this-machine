@@ -65,4 +65,14 @@ public class GameController : MonoBehaviour
 	{
         return pauseMenuActive;
 	}
+
+    public bool IsInspectionActive()
+    {
+        return inspectionActive;
+    }
+
+    public void SetInspectionAcive(bool inspectionState)
+    {
+        inspectionActive = inspectionState;
+    }
 }
