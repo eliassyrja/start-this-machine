@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CrosshairController : MonoBehaviour
 {
-    private bool isActive;
 
 	private void Start()
 	{
@@ -12,12 +11,10 @@ public class CrosshairController : MonoBehaviour
 	}
 	public void ShowCrosshair()
 	{
-        isActive = true;
         gameObject.SetActive(true);
 	}
     public void HideCrosshair()
     {
-        isActive = false;
         gameObject.SetActive(false);
     }
 }
