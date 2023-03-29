@@ -4,68 +4,69 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    private bool buttonState;
-    private bool clickable;
-    [SerializeField]private float transitionTime;
-    public Light lightIndicator;
-    private AudioController audioController;
+	private bool buttonState;
+	private bool clickable;
+	[SerializeField] private float transitionTime;
+	public Light lightIndicator;
+	private AudioController audioController;
 
-    private StateMachine stateMachine;
+	private StateMachine stateMachine;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioController = FindAnyObjectByType<AudioController>();
-        stateMachine = FindAnyObjectByType<StateMachine>();
-        //Initialize button state to be false = off
-        buttonState = false;
-        clickable = true;
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		audioController = FindAnyObjectByType<AudioController>();
+		stateMachine = FindAnyObjectByType<StateMachine>();
+		//Initialize button state to be false = off
+		buttonState = false;
+		clickable = true;
+	}
 
 	private void OnMouseOver()
 	{
 		if (Input.GetKeyDown(KeyCode.Mouse0) && clickable && stateMachine.GetCurrentState() == StateMachine.State.FreeLook)
 		{
-            UseButton();
-        }
+			UseButton();
+		}
 	}
 
-    private void UseButton()
+	private void UseButton()
 	{
 
-        audioController.Play("FlickSwitch");
-        Debug.Log("UseButton called");
-        if (buttonState)
+		audioController.Play("FlickSwitch");
+		Debug.Log("UseButton called");
+		if (buttonState)
 		{
-            Debug.Log("Button off");
-            lightIndicator.color = Color.red;
-            //Local rotations of the switch, current values eyeballed from editor
-            //transform.localRotation = Quaternion.Euler(22, 0, 0);
-            StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), transitionTime));
-            buttonState = false;
-        }
+			Debug.Log("Button off");
+			lightIndicator.color = Color.red;
+			//Local rotations of the switch, current values eyeballed from editor
+			//transform.localRotation = Quaternion.Euler(22, 0, 0);
+			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), transitionTime));
+			buttonState = false;
+		}
 		else
 		{
-            Debug.Log("Button on");
-            lightIndicator.color = Color.green;
-            //Local rotations of the switch, current values eyeballed from editor
-            //transform.localRotation = Quaternion.Euler(-22, 0, 0);
-            StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
-            buttonState = true;
-        }
-        
+			Debug.Log("Button on");
+			lightIndicator.color = Color.green;
+			//Local rotations of the switch, current values eyeballed from editor
+			//transform.localRotation = Quaternion.Euler(-22, 0, 0);
+			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
+			buttonState = true;
+		}
+
 	}
-    
-    // Coroutine to change rotation smoothly over time. It seems like Lerp can only be properly used inside of Update() -method.
-    IEnumerator ChangeRotationSmoothly(Quaternion startPosition, Quaternion endPosition, float time)
-    {
-        float startTime = Time.time;
-        clickable = false;
-        while(Time.time < startTime + time)
-        {
-            transform.localRotation = Quaternion.Lerp(startPosition, endPosition, (Time.time - startTime) / time);
-            yield return null;
-        }
-        clickable = true;
-    }
+
+	// Coroutine to change rotation smoothly over time. It seems like Lerp can only be properly used inside of Update() -method.
+	IEnumerator ChangeRotationSmoothly(Quaternion startPosition, Quaternion endPosition, float time)
+	{
+		float startTime = Time.time;
+		clickable = false;
+		while (Time.time < startTime + time)
+		{
+			transform.localRotation = Quaternion.Lerp(startPosition, endPosition, (Time.time - startTime) / time);
+			yield return null;
+		}
+		transform.localRotation = endPosition;
+		clickable = true;
+	}
 }
