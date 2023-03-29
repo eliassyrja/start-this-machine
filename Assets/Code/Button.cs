@@ -10,10 +10,13 @@ public class Button : MonoBehaviour
     public Light lightIndicator;
     private AudioController audioController;
 
+    private StateMachine stateMachine;
+
     // Start is called before the first frame update
     void Start()
     {
         audioController = FindAnyObjectByType<AudioController>();
+        stateMachine = FindAnyObjectByType<StateMachine>();
         //Initialize button state to be false = off
         buttonState = false;
         clickable = true;
@@ -21,7 +24,7 @@ public class Button : MonoBehaviour
 
 	private void OnMouseOver()
 	{
-		if (Input.GetKeyDown(KeyCode.Mouse0) && clickable)
+		if (Input.GetKeyDown(KeyCode.Mouse0) && clickable && stateMachine.GetCurrentState() == StateMachine.State.FreeLook)
 		{
             UseButton();
         }

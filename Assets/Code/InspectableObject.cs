@@ -15,21 +15,23 @@ public class InspectableObject : MonoBehaviour
     [SerializeField] private float inspectionSpeed;
 
     private GameController gameController;
+    private StateMachine stateMachine;
+    private GameObject inspectedObject;
 
-    private bool inspectionActive;
     private Vector3 startingPosition;
     private Quaternion startingRotation;
 
     public void Start()
     {
         gameController = FindObjectOfType<GameController>();
+        stateMachine = FindObjectOfType<StateMachine>();
     }
 
     public void Update()
     {
-        if (inspectionActive)
+        if (stateMachine.GetCurrentState() == StateMachine.State.Inspection)
         {
-            if (Input.GetKeyDown(KeyCode.E) && gameController.pauseMenuActive == false)
+            if (Input.GetKeyDown(KeyCode.E) && gameObject == inspectedObject)
             {
                 EndInspection();
             }
@@ -37,9 +39,9 @@ public class InspectableObject : MonoBehaviour
     }
     public void OnMouseOver()
     {
-        if (Input.GetKeyDown(interactionKey) && gameController.pauseMenuActive == false)
+        if (stateMachine.GetCurrentState() == StateMachine.State.FreeLook)
         {
-            if (!inspectionActive)
+            if (Input.GetKeyDown(interactionKey))
             {
                 SetupInspection();
             }
@@ -48,7 +50,7 @@ public class InspectableObject : MonoBehaviour
 
     public void OnMouseDrag()
     {
-        if (inspectionActive && gameController.pauseMenuActive == false)
+        if (stateMachine.GetCurrentState() == StateMachine.State.Inspection)
         {
             InspectItem();
         }
@@ -68,13 +70,15 @@ public class InspectableObject : MonoBehaviour
     private void SetupInspection()
     {
         Debug.Log("SetupInspection called.");
+        stateMachine.ChangeState(StateMachine.State.Inspection);
 
-        startingPosition = gameObject.transform.position;
-        startingRotation = gameObject.transform.rotation;
-        gameController.SetInspectionAcive(true);
-        inspectionActive = gameController.IsInspectionActive();
+        inspectedObject = gameObject;
 
         gameController.ShowCursor();
+        Debug.Log("Starting position before:" + startingPosition);
+        startingPosition = gameObject.transform.position;
+        startingRotation = gameObject.transform.rotation;
+        Debug.Log("Starting position after:" + startingPosition);
 
         gameObject.transform.position = Camera.main.transform.position + new Vector3(0, 0, 1);
         gameObject.transform.localScale -= new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
@@ -86,11 +90,11 @@ public class InspectableObject : MonoBehaviour
     {
         Debug.Log("EndInspection called.");
 
-        gameController.SetInspectionAcive(false);
-        inspectionActive = gameController.IsInspectionActive();
         gameController.HideCursor();
+        stateMachine.ChangeState(StateMachine.State.FreeLook);
 
-        gameObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
-        gameObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
+        inspectedObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
+        inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
+        inspectedObject = null;
     }
 }

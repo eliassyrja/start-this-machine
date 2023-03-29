@@ -17,22 +17,24 @@ public class ZoomController : MonoBehaviour
     //Variable used to store camera FOV while zooming in and out.
     private float currentFov;
 
+    private StateMachine stateMachine;
 
     // Start is called before the first frame update
     void Start()
     {
         //Set Camera FOV to starting FOV, this can be changed in Editor.
         cam.fieldOfView = startingFov;
+        stateMachine = FindObjectOfType<StateMachine>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(zoomKey))
+        if (Input.GetKey(zoomKey) && stateMachine.GetCurrentState() != StateMachine.State.PauseMenu)
         {
             HandleCameraZoomIn();
         }
-        else
+        else if (stateMachine.GetCurrentState() != StateMachine.State.PauseMenu)
         {
             HandleCameraZoomOut();
         }
