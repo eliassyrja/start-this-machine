@@ -21,12 +21,6 @@ public class StateMachine : MonoBehaviour
         previousState = currentState;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void ChangeState(State newState)
     {
         previousState = currentState;

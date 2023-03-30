@@ -86,7 +86,7 @@ public class CameraController : MonoBehaviour
 		float startTime = Time.time;
 		while (Time.time < startTime + time)
 		{
-			Camera.main.transform.rotation = Quaternion.Lerp(startPosition, endPosition, (Time.time - startTime) / time);
+			Camera.main.transform.rotation = Quaternion.Slerp(startPosition, endPosition, (Time.time - startTime) / time);
 			yield return null;
 		}
 		Camera.main.transform.rotation = endPosition;
