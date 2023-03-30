@@ -529,12 +529,32 @@ MonoBehaviour:
       volume: 0.5
       pitch: 1
       source: {fileID: 0}
-  - name: Button
+  - name: ScrewdriverPickup
     sounds:
-    - name: Button1
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+    - name: ScrewdriverPickup1
+      clip: {fileID: 8300000, guid: c35ff25121139d24697aa5fc6d8c043c, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPickup2
+      clip: {fileID: 8300000, guid: 76f59d02d8653f840b410b5e46d95e24, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPickup3
+      clip: {fileID: 8300000, guid: a3ff5394226d6254b9809c8b8a52d707, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPickup4
+      clip: {fileID: 8300000, guid: 80f0a821dcc208a4ca6691c0d45d49f4, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPickup5
+      clip: {fileID: 8300000, guid: 50e244850cd54d345a3998ed7a909962, type: 3}
+      volume: 0.4
+      pitch: 1
       source: {fileID: 0}
 --- !u!4 &336195368
 Transform:
@@ -1018,6 +1038,7 @@ MonoBehaviour:
   interactionKey: 323
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  audioClipType: 
 --- !u!1 &943085393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2329,7 @@ MonoBehaviour:
   interactionKey: 323
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  audioClipType: ScrewdriverPickup
 --- !u!1 &2141046505
 GameObject:
   m_ObjectHideFlags: 0

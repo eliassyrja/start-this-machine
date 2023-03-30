@@ -18,12 +18,16 @@ public class InspectableObject : MonoBehaviour
 	private StateMachine stateMachine;
 	private GameObject inspectedObject;
 	private CameraController cameraController;
+	private AudioController audioController;
+	[SerializeField] private string audioClipTypePickup;
+	[SerializeField] private string audioClipTypePlace;
 
 	private Vector3 startingPosition;
 	private Quaternion startingRotation;
 
 	public void Start()
 	{
+		audioController = FindObjectOfType<AudioController>();
 		gameController = FindObjectOfType<GameController>();
 		stateMachine = FindObjectOfType<StateMachine>();
 		cameraController = FindObjectOfType<CameraController>();
@@ -36,6 +40,7 @@ public class InspectableObject : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.E) && gameObject == inspectedObject)
 			{
 				EndInspection();
+				audioController.Play(audioClipTypePlace.ToString());
 			}
 		}
 	}
@@ -46,6 +51,7 @@ public class InspectableObject : MonoBehaviour
 			if (Input.GetKeyDown(interactionKey))
 			{
 				SetupInspection();
+				audioController.Play(audioClipTypePickup.ToString());
 			}
 		}
 	}
@@ -72,6 +78,7 @@ public class InspectableObject : MonoBehaviour
 	private void SetupInspection()
 	{
 		Debug.Log("SetupInspection called.");
+
 		stateMachine.ChangeState(StateMachine.State.Inspection);
 
 		inspectedObject = gameObject;
@@ -83,7 +90,7 @@ public class InspectableObject : MonoBehaviour
 		gameObject.transform.position = Camera.main.transform.position + new Vector3(0, 0, 1);
 		gameObject.transform.localScale -= new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
 
-		cameraController.HandleInspectionCamera(true);
+		cameraController.ToggleInspectionCamera(true);
 	}
 
 	private void EndInspection()
@@ -91,11 +98,11 @@ public class InspectableObject : MonoBehaviour
 		Debug.Log("EndInspection called.");
 
 		gameController.HideCursor();
-		stateMachine.ChangeState(StateMachine.State.FreeLook);
-
+		
 		inspectedObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
 		inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
 		inspectedObject = null;
-		cameraController.HandleInspectionCamera(false);
+		cameraController.ToggleInspectionCamera(false);
+		stateMachine.ChangeState(StateMachine.State.FreeLook);
 	}
 }

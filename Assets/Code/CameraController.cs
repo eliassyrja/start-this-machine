@@ -40,7 +40,6 @@ public class CameraController : MonoBehaviour
 		{
 			HandleCameraMovement();
 		}
-
 	}
 
 	private void HandleCameraMovement()
@@ -63,7 +62,7 @@ public class CameraController : MonoBehaviour
 
 	}
 
-	public void HandleInspectionCamera(bool onOrOff)
+	public void ToggleInspectionCamera(bool onOrOff)
 	{
 		if (onOrOff)
 		{
