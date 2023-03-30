@@ -297,9 +297,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 2
   floorAngleLimit: 90
-  ceilingAngleLimit: -50
-  leftAngleLimit: 70
-  rightAngleLimit: -70
+  ceilingAngleLimit: -70
+  leftAngleLimit: 90
+  rightAngleLimit: -90
 --- !u!81 &194276948
 AudioListener:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   cam: {fileID: 194276949}
   startingFov: 50
   zoomInFov: 20
-  zoomSpeed: 20
+  zoomSpeed: 35
 --- !u!1 &221462285
 GameObject:
   m_ObjectHideFlags: 0
