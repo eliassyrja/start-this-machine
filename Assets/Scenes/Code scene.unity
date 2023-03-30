@@ -556,6 +556,70 @@ MonoBehaviour:
       volume: 0.4
       pitch: 1
       source: {fileID: 0}
+  - name: ScrewdriverPlace
+    sounds:
+    - name: ScrewdriverPlace1
+      clip: {fileID: 8300000, guid: d8aae4b73661aac45a28d38911c8453f, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPlace2
+      clip: {fileID: 8300000, guid: 6845fc4e0c2847c47933b01f586c915d, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPlace3
+      clip: {fileID: 8300000, guid: b34ba3800388bd245ba5c53399232703, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPlace4
+      clip: {fileID: 8300000, guid: d82adeb7d628788448d329febd9e709e, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: ScrewdriverPlace5
+      clip: {fileID: 8300000, guid: 85a1da9ca40713d4a88ff825eb2700d6, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+  - name: CerealBoxPickup
+    sounds:
+    - name: CerealBoxPickup1
+      clip: {fileID: 8300000, guid: bc27a11735b5e7f408b9b7e8761f53ed, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: CerealBoxPickup2
+      clip: {fileID: 8300000, guid: 69ab5dce2ee7e98459dc6e89c945e296, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: CerealBoxPickup3
+      clip: {fileID: 8300000, guid: 797f486a1573cf947bc0416be86cc06f, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: CerealBoxPickup4
+      clip: {fileID: 8300000, guid: d6f4b52d89dfbc648942dcd628d75c7a, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: CerealBoxPickup5
+      clip: {fileID: 8300000, guid: 0f13eed3d3b9e3a45a06a96d542a6dc0, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: CerealBoxPickup6
+      clip: {fileID: 8300000, guid: 64b5c3c12e89b8f44bc999bdd62c66d8, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
+    - name: CerealBoxPickup7
+      clip: {fileID: 8300000, guid: c80c757c8959cde4eae2750cd87830d7, type: 3}
+      volume: 0.4
+      pitch: 1
+      source: {fileID: 0}
 --- !u!4 &336195368
 Transform:
   m_ObjectHideFlags: 0
@@ -1038,7 +1102,8 @@ MonoBehaviour:
   interactionKey: 323
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
-  audioClipType: 
+  audioClipTypePickup: CerealBoxPickup
+  audioClipTypePlace: CerealBoxPickup
 --- !u!1 &943085393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,7 +2394,8 @@ MonoBehaviour:
   interactionKey: 323
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
-  audioClipType: ScrewdriverPickup
+  audioClipTypePickup: ScrewdriverPickup
+  audioClipTypePlace: ScrewdriverPlace
 --- !u!1 &2141046505
 GameObject:
   m_ObjectHideFlags: 0
