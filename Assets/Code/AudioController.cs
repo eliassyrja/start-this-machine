@@ -44,7 +44,7 @@ public class AudioController : MonoBehaviour
 
                 s.source.PlayOneShot(s.clip);
 
-                Debug.Log("Audio played");
+                Debug.Log("Audio " + s.name.ToString() + " played");
             }
 		}
         
