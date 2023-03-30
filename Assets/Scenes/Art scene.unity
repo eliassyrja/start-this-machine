@@ -300,6 +300,7 @@ MonoBehaviour:
   ceilingAngleLimit: -70
   leftAngleLimit: 90
   rightAngleLimit: -90
+  rotationTime: 0
 --- !u!81 &194276948
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1017,6 +1018,8 @@ MonoBehaviour:
   interactionKey: 323
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  audioClipTypePickup: 
+  audioClipTypePlace: 
 --- !u!1 &943085393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,6 +2310,8 @@ MonoBehaviour:
   interactionKey: 323
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  audioClipTypePickup: 
+  audioClipTypePlace: 
 --- !u!1 &2141046505
 GameObject:
   m_ObjectHideFlags: 0
@@ -5216,10 +5221,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.03
-  m_Height: 0.13538302
+  m_Radius: 0.06408414
+  m_Height: 0.14871186
   m_Direction: 2
-  m_Center: {x: -0.00000435073, y: 0, z: 0.07605112}
+  m_Center: {x: 0.004734024, y: -0.0032805472, z: 0.08271573}
 --- !u!4 &8796187631106481684
 Transform:
   m_ObjectHideFlags: 0
