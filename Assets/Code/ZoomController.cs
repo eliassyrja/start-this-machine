@@ -48,6 +48,10 @@ public class ZoomController : MonoBehaviour
         {
             cam.fieldOfView += (-zoomSpeed * Time.deltaTime);
         }
+		else
+		{
+            cam.fieldOfView = zoomInFov;
+		}
     }
 
     private void HandleCameraZoomOut()
@@ -56,6 +60,10 @@ public class ZoomController : MonoBehaviour
         if (currentFov < startingFov)
         {
             cam.fieldOfView -= (-zoomSpeed * Time.deltaTime);
+        }
+        else
+        {
+            cam.fieldOfView = startingFov;
         }
     }
 }
