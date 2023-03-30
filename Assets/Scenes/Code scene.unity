@@ -300,6 +300,7 @@ MonoBehaviour:
   ceilingAngleLimit: -70
   leftAngleLimit: 90
   rightAngleLimit: -90
+  rotationTime: 0.2
 --- !u!81 &194276948
 AudioListener:
   m_ObjectHideFlags: 0
