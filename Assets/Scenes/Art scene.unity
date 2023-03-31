@@ -533,7 +533,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 31
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -1650,7 +1650,8 @@ GameObject:
   m_Component:
   - component: {fileID: 773906675}
   - component: {fileID: 773906674}
-  m_Layer: 0
+  - component: {fileID: 773906676}
+  m_Layer: 6
   m_Name: Post Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1689,6 +1690,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &773906676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773906673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.948822, y: 7.2999277, z: 12.048762}
+  m_Center: {x: -5.474411, y: 3.1499639, z: -4.057669}
 --- !u!1001 &804748525
 PrefabInstance:
   m_ObjectHideFlags: 0
