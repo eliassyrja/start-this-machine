@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7abf606d107d35c4599aae69ae5ec4df
+guid: 2a731312af69d074180577070f5c3705
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Dot Matrix
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 57ec4bfabe1824b4a9a877d9798c586d, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

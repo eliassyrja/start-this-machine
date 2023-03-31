@@ -924,6 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionKey: 323
+  endInteractionKey: 101
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
   audioClipTypePickup: CerealBoxPickup
@@ -1177,6 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionKey: 323
+  endInteractionKey: 101
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
   audioClipTypePickup: CerealBoxPickup
@@ -1281,8 +1283,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d055b01315a015d4ba9b72c1f485199f, type: 2}
-  m_sharedMaterial: {fileID: -7135574587940756994, guid: d055b01315a015d4ba9b72c1f485199f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d87082b7874ca2448b2c3bfd20f6e810, type: 2}
+  m_sharedMaterial: {fileID: -6095783608597353329, guid: d87082b7874ca2448b2c3bfd20f6e810, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1371,7 +1373,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7135574587940756994, guid: d055b01315a015d4ba9b72c1f485199f, type: 2}
+  - {fileID: -6095783608597353329, guid: d87082b7874ca2448b2c3bfd20f6e810, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1588,8 +1590,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: sdasda
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d055b01315a015d4ba9b72c1f485199f, type: 2}
-  m_sharedMaterial: {fileID: -7135574587940756994, guid: d055b01315a015d4ba9b72c1f485199f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d87082b7874ca2448b2c3bfd20f6e810, type: 2}
+  m_sharedMaterial: {fileID: -6095783608597353329, guid: d87082b7874ca2448b2c3bfd20f6e810, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1678,7 +1680,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7135574587940756994, guid: d055b01315a015d4ba9b72c1f485199f, type: 2}
+  - {fileID: -6095783608597353329, guid: d87082b7874ca2448b2c3bfd20f6e810, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2861,6 +2863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionKey: 323
+  endInteractionKey: 101
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
   audioClipTypePickup: ScrewdriverPickup
