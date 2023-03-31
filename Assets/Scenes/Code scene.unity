@@ -300,6 +300,48 @@ MonoBehaviour:
   ceilingAngleLimit: -70
   leftAngleLimit: 90
   rightAngleLimit: -90
+  transitionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.35572165
+      outSlope: 0.35572165
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.43297786
+      value: 0.1540196
+      inSlope: 0.845463
+      outSlope: 0.845463
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.100495555
+      outWeight: 0.1839129
+    - serializedVersion: 3
+      time: 0.8590702
+      value: 0.8444537
+      inSlope: 2.0887384
+      outSlope: 2.0887384
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.23587012
+    - serializedVersion: 3
+      time: 0.9992857
+      value: 1.0018797
+      inSlope: -0.07242851
+      outSlope: -0.07242851
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   rotationTime: 0.5
 --- !u!81 &194276948
 AudioListener:
@@ -1170,8 +1212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxFPS: 144
-  pauseMenuActive: 0
-  inspectionActive: 0
 --- !u!4 &943085395
 Transform:
   m_ObjectHideFlags: 0

@@ -78,12 +78,10 @@ public class InspectableObject : MonoBehaviour
 	private void SetupInspection()
 	{
 		Debug.Log("SetupInspection called.");
-
-		stateMachine.ChangeState(StateMachine.State.Inspection);
-
 		inspectedObject = gameObject;
 
 		gameController.ShowCursor();
+
 		startingPosition = gameObject.transform.position;
 		startingRotation = gameObject.transform.rotation;
 
@@ -91,6 +89,7 @@ public class InspectableObject : MonoBehaviour
 		gameObject.transform.localScale -= new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
 
 		cameraController.ToggleInspectionCamera(true);
+		stateMachine.ChangeState(StateMachine.State.Transition);
 	}
 
 	private void EndInspection()
@@ -103,6 +102,5 @@ public class InspectableObject : MonoBehaviour
 		inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
 		inspectedObject = null;
 		cameraController.ToggleInspectionCamera(false);
-		stateMachine.ChangeState(StateMachine.State.FreeLook);
 	}
 }

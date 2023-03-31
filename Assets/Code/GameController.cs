@@ -6,8 +6,6 @@ public class GameController : MonoBehaviour
 {
     public int maxFPS;
     private Canvas pauseMenu;
-    [HideInInspector] public bool pauseMenuActive;
-    [HideInInspector] public bool inspectionActive;
 
     private CrosshairController crosshairController;
     private StateMachine stateMachine;
@@ -44,7 +42,6 @@ public class GameController : MonoBehaviour
         stateMachine.ChangeState(StateMachine.State.PauseMenu);
         ShowCursor();
         pauseMenu.enabled = true;
-        pauseMenuActive = true;
     }
 
     public void ClosePauseMenu()
@@ -60,7 +57,6 @@ public class GameController : MonoBehaviour
 
         HideCursor();
         pauseMenu.enabled = false;
-        pauseMenuActive = false;
         if (stateMachine.GetCurrentState() == StateMachine.State.Inspection)
         {
             ShowCursor();

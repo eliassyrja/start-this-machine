@@ -8,7 +8,8 @@ public class StateMachine : MonoBehaviour
     {
         FreeLook,
         Inspection,
-        PauseMenu
+        PauseMenu,
+        Transition
     }
 
     State currentState;
@@ -20,8 +21,12 @@ public class StateMachine : MonoBehaviour
         currentState = State.FreeLook;
         previousState = currentState;
     }
+	private void Update()
+	{
+        Debug.Log("State is: " + currentState);
+	}
 
-    public void ChangeState(State newState)
+	public void ChangeState(State newState)
     {
         previousState = currentState;
         currentState = newState;
@@ -33,6 +38,8 @@ public class StateMachine : MonoBehaviour
             case State.Inspection:
                 break;
             case State.PauseMenu:
+                break;
+            case State.Transition:
                 break;
         }
     }

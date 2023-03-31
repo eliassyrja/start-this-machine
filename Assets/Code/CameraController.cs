@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
 	//Variables for horizontal and vertical movement.
 	private float horizontalMovement;
 	private float verticalMovement;
+	[SerializeField] private AnimationCurve transitionCurve;
 	[SerializeField] private float rotationTime;
 	Quaternion startRotation;
 	Quaternion targetRotation;
@@ -31,6 +32,7 @@ public class CameraController : MonoBehaviour
 		stateMachine = FindObjectOfType<StateMachine>();
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+		Camera.main.transform.rotation = Quaternion.Euler(0, 0, 0);
 	}
 
 	// Update is called once per frame
@@ -73,22 +75,33 @@ public class CameraController : MonoBehaviour
 
 		if (onOrOff)
 		{
-			StartCoroutine(Lerp(startRotation, targetRotation, rotationTime));
+			StartCoroutine(LerpInspection(startRotation, targetRotation, onOrOff));
 		}
 		else
 		{
-			StartCoroutine(Lerp(targetRotation, startRotation, rotationTime));
+			StartCoroutine(LerpInspection(targetRotation, startRotation, onOrOff));
 		}
 
 	}
-	private IEnumerator Lerp(Quaternion startPosition, Quaternion endPosition, float time)
+	private IEnumerator LerpInspection(Quaternion startPosition, Quaternion endPosition, bool onOrOff)
 	{
-		float startTime = Time.time;
-		while (Time.time < startTime + time)
+		float startTime = 0f;
+		while (startTime < rotationTime)
 		{
-			Camera.main.transform.rotation = Quaternion.Slerp(startPosition, endPosition, (Time.time - startTime) / time);
+			float t = startTime / rotationTime;
+			float rotationValue = transitionCurve.Evaluate(t);
+			Camera.main.transform.rotation = Quaternion.Slerp(startPosition, endPosition, rotationValue);
+			startTime += Time.deltaTime;
 			yield return null;
 		}
 		Camera.main.transform.rotation = endPosition;
+		if (!onOrOff)
+		{
+			stateMachine.ChangeState(StateMachine.State.FreeLook);
+		}
+		else
+		{
+			stateMachine.ChangeState(StateMachine.State.Inspection);
+		}
 	}
 }
