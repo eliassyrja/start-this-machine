@@ -103,5 +103,6 @@ public class InspectableObject : MonoBehaviour
         inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
         inspectedObject = null;
         cameraController.ToggleInspectionCamera(false);
+        stateMachine.ChangeState(StateMachine.State.Transition);
     }
 }
