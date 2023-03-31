@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 [RequireComponent(typeof(Collider))]
 public class InspectableObject : MonoBehaviour
@@ -23,11 +24,14 @@ public class InspectableObject : MonoBehaviour
     [SerializeField] private string audioClipTypePickup;
     [SerializeField] private string audioClipTypePlace;
 
+    private GameObject postFX;
+
     private Vector3 startingPosition;
     private Quaternion startingRotation;
 
     public void Start()
     {
+        postFX = GameObject.Find("Post FX");
         audioController = FindObjectOfType<AudioController>();
         gameController = FindObjectOfType<GameController>();
         stateMachine = FindObjectOfType<StateMachine>();
@@ -78,6 +82,7 @@ public class InspectableObject : MonoBehaviour
 
     private void SetupInspection()
     {
+        ToggleDepthOfField(true);
         Debug.Log("SetupInspection called.");
         inspectedObject = gameObject;
 
@@ -95,6 +100,7 @@ public class InspectableObject : MonoBehaviour
 
     private void EndInspection()
     {
+        ToggleDepthOfField(false);
         Debug.Log("EndInspection called.");
 
         gameController.HideCursor();
@@ -103,5 +109,19 @@ public class InspectableObject : MonoBehaviour
         inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
         inspectedObject = null;
         cameraController.ToggleInspectionCamera(false);
+    }
+    public void ToggleDepthOfField(bool onOrOff)
+    {
+        if (postFX != null)
+        {
+            if (onOrOff)
+            {
+                postFX.GetComponent<PostProcessVolume>().enabled = true;
+            }
+            else
+            {
+                postFX.GetComponent<PostProcessVolume>().enabled = false;
+            }
+        }
     }
 }

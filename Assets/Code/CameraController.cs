@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraController : MonoBehaviour
 {
 	//Mouse sensitivity.
@@ -25,6 +26,7 @@ public class CameraController : MonoBehaviour
 	Quaternion targetRotation;
 
 	private StateMachine stateMachine;
+	
 
 	// Start is called before the first frame update
 	void Start()
@@ -104,4 +106,5 @@ public class CameraController : MonoBehaviour
 			stateMachine.ChangeState(StateMachine.State.Inspection);
 		}
 	}
+	
 }
