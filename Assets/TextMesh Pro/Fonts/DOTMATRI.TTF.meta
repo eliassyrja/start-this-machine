@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2a731312af69d074180577070f5c3705
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Dot Matrix
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 57ec4bfabe1824b4a9a877d9798c586d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
