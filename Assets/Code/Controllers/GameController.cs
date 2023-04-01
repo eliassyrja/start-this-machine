@@ -40,27 +40,13 @@ public class GameController : MonoBehaviour
     public void ShowPauseMenu()
     {
         stateMachine.ChangeState(StateMachine.State.PauseMenu);
-        ShowCursor();
         pauseMenu.enabled = true;
     }
 
     public void ClosePauseMenu()
     {
-        if (stateMachine.GetPreviousState() == StateMachine.State.Inspection)
-        {
-            stateMachine.ChangeState(StateMachine.State.Inspection);
-        }
-        else 
-        {
-            stateMachine.ChangeState(stateMachine.GetPreviousState());
-        }
-
-        HideCursor();
+        stateMachine.ChangeState(stateMachine.GetPreviousState());
         pauseMenu.enabled = false;
-        if (stateMachine.GetCurrentState() == StateMachine.State.Inspection)
-        {
-            ShowCursor();
-        }
     }
 
     public void ShowCursor()
@@ -76,4 +62,12 @@ public class GameController : MonoBehaviour
         crosshairController.ShowCrosshair();
     }
 
+    public void QuitGame()
+	{
+        //TODO: remove this comment when building
+        //Application.Quit();
+
+        //Use this for editor testing
+        UnityEditor.EditorApplication.isPlaying = false;
+	}
 }
