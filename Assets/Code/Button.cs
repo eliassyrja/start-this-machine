@@ -14,7 +14,8 @@ public class Button : MonoBehaviour
 	private StateMachine stateMachine;
 
 	//Event for calling different functions on different buttons
-	[SerializeField] private UnityEvent[] buttonEvent;
+	[SerializeField] private UnityEvent buttonOnEvent;
+	[SerializeField] private UnityEvent buttonOffEvent;
 
 	// Start is called before the first frame update
 	void Start()
@@ -24,6 +25,7 @@ public class Button : MonoBehaviour
 		//Initialize button state to be false = off
 		buttonState = false;
 		clickable = true;
+		UseButton();
 	}
 
 	private void OnMouseOver()
@@ -41,10 +43,7 @@ public class Button : MonoBehaviour
 		Debug.Log("UseButton called");
 		if (buttonState)
 		{
-			if (buttonEvent[0] != null)
-			{
-				buttonEvent[0].Invoke();
-			}
+			buttonOffEvent.Invoke();
 			Debug.Log("Button off");
 			lightIndicator.color = Color.red;
 			//Local rotations of the switch, current values eyeballed from editor
@@ -54,11 +53,8 @@ public class Button : MonoBehaviour
 		}
 		else
 		{
-			if(buttonEvent[1] != null)
-			{
-				buttonEvent[1].Invoke();
-			}
-			
+			buttonOnEvent.Invoke();
+
 			Debug.Log("Button on");
 			lightIndicator.color = Color.green;
 			//Local rotations of the switch, current values eyeballed from editor
@@ -66,7 +62,6 @@ public class Button : MonoBehaviour
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
 			buttonState = true;
 		}
-
 	}
 
 	// Coroutine to change rotation smoothly over time. It seems like Lerp can only be properly used inside of Update() -method.
