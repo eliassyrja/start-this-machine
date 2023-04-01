@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
+    private GameController gameController;
     public enum State
     {
         FreeLook,
@@ -18,6 +19,7 @@ public class StateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameController = FindAnyObjectByType<GameController>();
         currentState = State.FreeLook;
         previousState = currentState;
     }
@@ -39,13 +41,17 @@ public class StateMachine : MonoBehaviour
         switch (newState)
         {
             case State.FreeLook:
+                gameController.HideCursor();
                 break;
             case State.Inspection:
+                gameController.ShowCursor();
                 break;
             case State.PauseMenu:
+                gameController.ShowCursor();
                 Time.timeScale = 0;
                 break;
             case State.Transition:
+                gameController.HideCursor();
                 break;
         }
     }

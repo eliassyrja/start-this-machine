@@ -64,26 +64,26 @@ public class CameraController : MonoBehaviour
 
 	}
 
-	public void ToggleInspectionCamera(bool onOrOff)
+	public void ToggleInspectionCamera(bool isEnabled)
 	{
-		if (onOrOff)
+		if (isEnabled)
 		{
 			startRotation = Camera.main.transform.rotation;
 		}
-
+		stateMachine.ChangeState(StateMachine.State.Transition);
 		targetRotation = Quaternion.Euler(0, 0, 0);
 
-		if (onOrOff)
+		if (isEnabled)
 		{
-			StartCoroutine(LerpInspection(startRotation, targetRotation, onOrOff));
+			StartCoroutine(LerpInspection(startRotation, targetRotation, isEnabled));
 		}
 		else
 		{
-			StartCoroutine(LerpInspection(targetRotation, startRotation, onOrOff));
+			StartCoroutine(LerpInspection(targetRotation, startRotation, isEnabled));
 		}
 
 	}
-	private IEnumerator LerpInspection(Quaternion startPosition, Quaternion endPosition, bool onOrOff)
+	private IEnumerator LerpInspection(Quaternion startPosition, Quaternion endPosition, bool isEnabled)
 	{
 		float startTime = 0f;
 		while (startTime < rotationTime)
@@ -95,7 +95,7 @@ public class CameraController : MonoBehaviour
 			yield return null;
 		}
 		Camera.main.transform.rotation = endPosition;
-		if (!onOrOff)
+		if (!isEnabled)
 		{
 			stateMachine.ChangeState(StateMachine.State.FreeLook);
 		}

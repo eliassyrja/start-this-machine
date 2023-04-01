@@ -81,8 +81,6 @@ public class InspectableObject : MonoBehaviour
         Debug.Log("SetupInspection called.");
         inspectedObject = gameObject;
 
-        gameController.ShowCursor();
-
         startingPosition = gameObject.transform.position;
         startingRotation = gameObject.transform.rotation;
 
@@ -90,19 +88,15 @@ public class InspectableObject : MonoBehaviour
         gameObject.transform.localScale -= new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
 
         cameraController.ToggleInspectionCamera(true);
-        stateMachine.ChangeState(StateMachine.State.Transition);
     }
 
     private void EndInspection()
     {
         Debug.Log("EndInspection called.");
 
-        gameController.HideCursor();
-
         inspectedObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
         inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
         inspectedObject = null;
         cameraController.ToggleInspectionCamera(false);
-        stateMachine.ChangeState(StateMachine.State.Transition);
     }
 }

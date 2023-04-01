@@ -50,9 +50,9 @@ public class GameController : MonoBehaviour
         {
             stateMachine.ChangeState(StateMachine.State.Inspection);
         }
-        else
+        else 
         {
-            stateMachine.ChangeState(StateMachine.State.FreeLook);
+            stateMachine.ChangeState(stateMachine.GetPreviousState());
         }
 
         HideCursor();
