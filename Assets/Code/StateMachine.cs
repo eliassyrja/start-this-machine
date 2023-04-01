@@ -38,6 +38,9 @@ public class StateMachine : MonoBehaviour
         if (previousState == State.PauseMenu)
 		{
             Time.timeScale = 1;
+        }
+        if (previousState == State.Inspection)
+        {
             gameController.ToggleDepthOfField(false);
         }
 
@@ -47,10 +50,10 @@ public class StateMachine : MonoBehaviour
                 gameController.HideCursor();
                 break;
             case State.Inspection:
+                gameController.ToggleDepthOfField(true);
                 gameController.ShowCursor();
                 break;
             case State.PauseMenu:
-                gameController.ToggleDepthOfField(true);
                 gameController.ShowCursor();
                 Time.timeScale = 0;
                 break;
