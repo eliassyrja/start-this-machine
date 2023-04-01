@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class StateMachine : MonoBehaviour
 {
     private GameController gameController;
+    [SerializeField] private GameObject stateText;
     public enum State
     {
         FreeLook,
@@ -23,15 +25,12 @@ public class StateMachine : MonoBehaviour
         currentState = State.FreeLook;
         previousState = currentState;
     }
-	private void Update()
-	{
-        Debug.Log("State is: " + currentState);
-	}
 
 	public void ChangeState(State newState)
     {
         previousState = currentState;
         currentState = newState;
+        stateText.GetComponent<TextMeshProUGUI>().text = currentState.ToString();
 
         if (previousState == State.PauseMenu)
 		{
