@@ -52641,7 +52641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655947407}
   m_LocalRotation: {x: -0.7078469, y: 0, z: 0, w: 0.70636594}
-  m_LocalPosition: {x: 3.67, y: -0.919, z: -0.323}
+  m_LocalPosition: {x: 3.838, y: -1.021, z: -0.108}
   m_LocalScale: {x: 0.09768059, y: 0.09768059, z: 0.09768059}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52693,7 +52693,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.2
+  m_MinParticleSize: 0
   m_MaxParticleSize: 20
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
@@ -52701,7 +52701,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 2
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 3
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -52803,7 +52803,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -52972,7 +52972,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 7
+      scalar: 11.23
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -53290,7 +53290,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 500
     customEmitterVelocity: {x: 0, y: 0, z: 0}
-    size3D: 1
+    size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -53671,22 +53671,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 0.96679026
-          inSlope: 1
-          outSlope: 1
+          value: 0
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
