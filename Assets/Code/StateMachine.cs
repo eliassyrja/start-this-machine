@@ -31,6 +31,11 @@ public class StateMachine : MonoBehaviour
         previousState = currentState;
         currentState = newState;
 
+        if (previousState == State.PauseMenu)
+		{
+            Time.timeScale = 1;
+		}
+
         switch (newState)
         {
             case State.FreeLook:
@@ -38,6 +43,7 @@ public class StateMachine : MonoBehaviour
             case State.Inspection:
                 break;
             case State.PauseMenu:
+                Time.timeScale = 0;
                 break;
             case State.Transition:
                 break;
