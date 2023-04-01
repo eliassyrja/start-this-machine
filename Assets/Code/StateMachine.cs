@@ -38,7 +38,8 @@ public class StateMachine : MonoBehaviour
         if (previousState == State.PauseMenu)
 		{
             Time.timeScale = 1;
-		}
+            gameController.ToggleDepthOfField(false);
+        }
 
         switch (newState)
         {
@@ -49,6 +50,7 @@ public class StateMachine : MonoBehaviour
                 gameController.ShowCursor();
                 break;
             case State.PauseMenu:
+                gameController.ToggleDepthOfField(true);
                 gameController.ShowCursor();
                 Time.timeScale = 0;
                 break;

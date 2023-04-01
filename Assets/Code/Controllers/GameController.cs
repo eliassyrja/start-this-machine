@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -7,12 +8,17 @@ public class GameController : MonoBehaviour
     public int maxFPS;
     private Canvas pauseMenu;
 
+    private PostProcessVolume volume;
+    private DepthOfField depthOfField;
+
     private CrosshairController crosshairController;
     private StateMachine stateMachine;
 
     // Start is called before the first frame update
     void Start()
     {
+        volume = GameObject.Find("Post FX").GetComponent<PostProcessVolume>();
+        volume.profile.TryGetSettings(out depthOfField);
         crosshairController = FindObjectOfType<CrosshairController>();
         stateMachine = FindObjectOfType<StateMachine>();
         pauseMenu = GameObject.Find("Pause Menu").GetComponent<Canvas>();
@@ -69,5 +75,18 @@ public class GameController : MonoBehaviour
 
         //Use this for editor testing
         UnityEditor.EditorApplication.isPlaying = false;
+	}
+
+    public void ToggleDepthOfField(bool isEnabled)
+	{
+		if (isEnabled)
+		{
+            depthOfField.active = true;
+        }
+		else
+		{
+            depthOfField.active = false;
+        }
+        
 	}
 }
