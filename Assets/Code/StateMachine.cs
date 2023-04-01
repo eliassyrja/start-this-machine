@@ -6,7 +6,8 @@ using TMPro;
 public class StateMachine : MonoBehaviour
 {
     private GameController gameController;
-    [SerializeField] private GameObject stateText;
+    private DebugController debug;
+    
     public enum State
     {
         FreeLook,
@@ -22,15 +23,17 @@ public class StateMachine : MonoBehaviour
     void Start()
     {
         gameController = FindAnyObjectByType<GameController>();
+        debug = FindAnyObjectByType<DebugController>();
         currentState = State.FreeLook;
         previousState = currentState;
+        debug.UpdateStateText(currentState.ToString());
     }
 
 	public void ChangeState(State newState)
     {
         previousState = currentState;
         currentState = newState;
-        stateText.GetComponent<TextMeshProUGUI>().text = currentState.ToString();
+        debug.UpdateStateText(currentState.ToString());
 
         if (previousState == State.PauseMenu)
 		{
