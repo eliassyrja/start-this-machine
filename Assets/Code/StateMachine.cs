@@ -26,7 +26,7 @@ public class StateMachine : MonoBehaviour
         debug = FindAnyObjectByType<DebugController>();
         currentState = State.FreeLook;
         previousState = currentState;
-        debug.UpdateStateText(currentState.ToString());
+        debug.UpdateStateText(currentState.ToString(), previousState.ToString());
     }
 
     public void ChangeState(State newState)
@@ -34,7 +34,7 @@ public class StateMachine : MonoBehaviour
 
         previousState = currentState;
         currentState = newState;
-        debug.UpdateStateText(currentState.ToString());
+        debug.UpdateStateText(currentState.ToString(), previousState.ToString());
 
         if (currentState != State.PauseMenu)
         {
