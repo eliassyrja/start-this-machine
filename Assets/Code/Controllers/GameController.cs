@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     public int maxFPS;
     private Canvas pauseMenu;
+    private Canvas settingsMenu;
 
     private PostProcessVolume volume;
     private DepthOfField depthOfField;
@@ -21,8 +22,12 @@ public class GameController : MonoBehaviour
         volume.profile.TryGetSettings(out depthOfField);
         crosshairController = FindObjectOfType<CrosshairController>();
         stateMachine = FindObjectOfType<StateMachine>();
+
         pauseMenu = GameObject.Find("Pause Menu").GetComponent<Canvas>();
         pauseMenu.enabled = false;
+
+        settingsMenu = GameObject.Find("Settings Menu").GetComponent<Canvas>();
+        settingsMenu.enabled = false;
 
         Application.targetFrameRate = maxFPS;
     }
@@ -45,14 +50,41 @@ public class GameController : MonoBehaviour
 
     public void ShowPauseMenu()
     {
-        stateMachine.ChangeState(StateMachine.State.PauseMenu);
-        pauseMenu.enabled = true;
+        if (pauseMenu.enabled == false)
+        {
+            if (stateMachine.GetCurrentState() != StateMachine.State.PauseMenu)
+            {
+                stateMachine.ChangeState(StateMachine.State.PauseMenu);
+            }
+            pauseMenu.enabled = true;
+        }
     }
 
     public void ClosePauseMenu()
     {
-        stateMachine.ChangeState(stateMachine.GetPreviousState());
-        pauseMenu.enabled = false;
+        if (pauseMenu.enabled == true)
+        {
+            stateMachine.ChangeState(stateMachine.GetPreviousState());
+            pauseMenu.enabled = false;
+        }
+    }
+
+    public void ShowSettingsMenu()
+    {
+        if (settingsMenu.enabled == false)
+        {
+            pauseMenu.enabled = false;
+            settingsMenu.enabled = true;
+        }
+    }
+
+    public void CloseSettingsMenu()
+    {
+        if (settingsMenu.enabled == true)
+        {
+            settingsMenu.enabled = false;
+            ShowPauseMenu();
+        }
     }
 
     public void ShowCursor()
@@ -69,24 +101,24 @@ public class GameController : MonoBehaviour
     }
 
     public void QuitGame()
-	{
+    {
         //TODO: remove this comment when building
         //Application.Quit();
 
         //Use this for editor testing
         UnityEditor.EditorApplication.isPlaying = false;
-	}
+    }
 
     public void ToggleDepthOfField(bool isEnabled)
-	{
-		if (isEnabled)
-		{
+    {
+        if (isEnabled)
+        {
             depthOfField.active = true;
         }
-		else
-		{
+        else
+        {
             depthOfField.active = false;
         }
-        
-	}
+
+    }
 }

@@ -391,19 +391,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1976075892}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ClosePauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &36737799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,19 +954,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1250911141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ClosePauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &88077610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,7 +1327,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 428817007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1948818817}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ShowSettingsMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &113731570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3476,19 +3464,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1644898865}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ClosePauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &409431431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8593,7 +8569,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1948818817}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ClosePauseMenu
+        m_MethodName: CloseSettingsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45565,19 +45541,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 571901527}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ClosePauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1018141020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61299,7 +61263,7 @@ GameObject:
   - component: {fileID: 1374877497}
   - component: {fileID: 1374877496}
   m_Layer: 5
-  m_Name: Setting Menu
+  m_Name: Settings Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61554,19 +61518,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 328073213}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ClosePauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1403574661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62432,19 +62384,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 320002001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ClosePauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1598032672
 MonoBehaviour:
   m_ObjectHideFlags: 0

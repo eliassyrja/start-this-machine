@@ -7,7 +7,7 @@ public class StateMachine : MonoBehaviour
 {
     private GameController gameController;
     private DebugController debug;
-    
+
     public enum State
     {
         FreeLook,
@@ -29,14 +29,15 @@ public class StateMachine : MonoBehaviour
         debug.UpdateStateText(currentState.ToString());
     }
 
-	public void ChangeState(State newState)
+    public void ChangeState(State newState)
     {
+
         previousState = currentState;
         currentState = newState;
         debug.UpdateStateText(currentState.ToString());
 
-        if (previousState == State.PauseMenu)
-		{
+        if (currentState != State.PauseMenu)
+        {
             Time.timeScale = 1;
         }
         if (previousState == State.Inspection)
