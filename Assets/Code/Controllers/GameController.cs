@@ -41,6 +41,10 @@ public class GameController : MonoBehaviour
             {
                 ShowPauseMenu();
             }
+            else if (settingsMenu.enabled == true)
+            {
+                CloseSettingsMenu();
+            }
             else
             {
                 ClosePauseMenu();
