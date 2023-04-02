@@ -41,54 +41,42 @@ public class GameController : MonoBehaviour
             {
                 ShowPauseMenu();
             }
-            else if (settingsMenu.enabled == true)
+            else if (settingsMenu.enabled == false)
             {
-                CloseSettingsMenu();
+                ClosePauseMenu();
             }
             else
             {
-                ClosePauseMenu();
+                CloseSettingsMenu();
             }
         }
     }
 
     public void ShowPauseMenu()
     {
-        if (pauseMenu.enabled == false)
+        if (stateMachine.GetCurrentState() != StateMachine.State.PauseMenu)
         {
-            if (stateMachine.GetCurrentState() != StateMachine.State.PauseMenu)
-            {
-                stateMachine.ChangeState(StateMachine.State.PauseMenu);
-            }
-            pauseMenu.enabled = true;
+            stateMachine.ChangeState(StateMachine.State.PauseMenu);
         }
+        pauseMenu.enabled = true;
     }
 
     public void ClosePauseMenu()
     {
-        if (pauseMenu.enabled == true)
-        {
-            stateMachine.ChangeState(stateMachine.GetPreviousState());
-            pauseMenu.enabled = false;
-        }
+        stateMachine.ChangeState(stateMachine.GetPreviousState());
+        pauseMenu.enabled = false;
     }
 
     public void ShowSettingsMenu()
     {
-        if (settingsMenu.enabled == false)
-        {
-            pauseMenu.enabled = false;
-            settingsMenu.enabled = true;
-        }
+        pauseMenu.enabled = false;
+        settingsMenu.enabled = true;
     }
 
     public void CloseSettingsMenu()
     {
-        if (settingsMenu.enabled == true)
-        {
-            settingsMenu.enabled = false;
-            ShowPauseMenu();
-        }
+        settingsMenu.enabled = false;
+        ShowPauseMenu();
     }
 
     public void ShowCursor()
