@@ -39,6 +39,7 @@ public class StateMachine : MonoBehaviour
         if (currentState != State.PauseMenu)
         {
             Time.timeScale = 1;
+            AudioListener.pause = false;
         }
         if (previousState == State.Inspection)
         {
@@ -56,6 +57,7 @@ public class StateMachine : MonoBehaviour
                 break;
             case State.PauseMenu:
                 gameController.ShowCursor();
+                AudioListener.pause = true;
                 Time.timeScale = 0;
                 break;
             case State.Transition:
