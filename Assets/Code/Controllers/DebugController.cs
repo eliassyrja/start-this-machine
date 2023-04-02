@@ -5,7 +5,8 @@ using TMPro;
 
 public class DebugController : MonoBehaviour
 {
-    [SerializeField] private GameObject stateText;
+    [SerializeField] private GameObject currentStateText;
+    [SerializeField] private GameObject previousStateText;
     [SerializeField] private GameObject fpsObject;
     private StateMachine stateMachine;
     private TextMeshProUGUI fpsText;
@@ -27,8 +28,9 @@ public class DebugController : MonoBehaviour
         }
         
     }
-    public void UpdateStateText(string currentState)
+    public void UpdateStateText(string currentState, string previousState)
 	{
-        stateText.GetComponent<TextMeshProUGUI>().text = currentState;
+        currentStateText.GetComponent<TextMeshProUGUI>().text = currentState;
+        previousStateText.GetComponent<TextMeshProUGUI>().text = previousState;
     }
 }
