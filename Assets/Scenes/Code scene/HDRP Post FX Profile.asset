@@ -46,6 +46,27 @@ MonoBehaviour:
   accumulationFactor:
     m_OverrideState: 0
     m_Value: 0.75
+  biasFactor:
+    m_OverrideState: 0
+    m_Value: 0.5
+  speedRejectionParam:
+    m_OverrideState: 0
+    m_Value: 0.5
+  speedRejectionScalerFactor:
+    m_OverrideState: 0
+    m_Value: 0.2
+  speedSmoothReject:
+    m_OverrideState: 0
+    m_Value: 0
+  speedSurfaceOnly:
+    m_OverrideState: 0
+    m_Value: 1
+  speedTargetOnly:
+    m_OverrideState: 0
+    m_Value: 1
+  enableWorldSpeedRejection:
+    m_OverrideState: 0
+    m_Value: 0
   m_RayMaxIterations:
     m_OverrideState: 0
     m_Value: 32
@@ -191,10 +212,10 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.063
+    m_Value: 0.331
   scatter:
     m_OverrideState: 1
-    m_Value: 0.396
+    m_Value: 0.387
   tint:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -236,6 +257,32 @@ MonoBehaviour:
   - {fileID: 6929561144608356584}
   - {fileID: -5441976977162871502}
   - {fileID: -3965723073166777242}
+  - {fileID: 3303400194912131372}
+--- !u!114 &3303400194912131372
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598e2d32e2c7b0c418e030c3236d663a, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  quality:
+    m_OverrideState: 1
+    m_Value: 3
+  spectralLut:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.111
+  m_MaxSamples:
+    m_OverrideState: 1
+    m_Value: 5
 --- !u!114 &3640597261091500532
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -260,7 +307,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 0.48036602
+    m_Value: 0.89210844
   compensation:
     m_OverrideState: 0
     m_Value: 0
@@ -525,4 +572,7 @@ MonoBehaviour:
     m_Value: 1
   m_PhysicallyBased:
     m_OverrideState: 1
+    m_Value: 0
+  m_LimitManualRangeNearBlur:
+    m_OverrideState: 0
     m_Value: 0
