@@ -22,8 +22,8 @@ public class StateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameController = FindAnyObjectByType<GameController>();
-        debug = FindAnyObjectByType<DebugController>();
+        gameController = FindObjectOfType<GameController>();
+        debug = FindObjectOfType<DebugController>();
         currentState = State.FreeLook;
         previousState = currentState;
         debug.UpdateStateText(currentState.ToString(), previousState.ToString());

@@ -15,7 +15,7 @@ public class DebugController : MonoBehaviour
 	private void Start()
 	{
 		fpsText = fpsObject.GetComponent<TextMeshProUGUI>();
-        stateMachine = FindAnyObjectByType<StateMachine>();
+        stateMachine = FindObjectOfType<StateMachine>();
     }
 
 	// Update is called once per frame

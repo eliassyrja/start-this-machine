@@ -136,6 +136,7 @@ MonoBehaviour:
   - {fileID: 4912995473310784290}
   - {fileID: -223201856251347797}
   - {fileID: 425484743730087944}
+  - {fileID: 4221305241689322361}
 --- !u!114 &425484743730087944
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -257,6 +258,24 @@ MonoBehaviour:
   m_ObsoleteScrollSpeed:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &4221305241689322361
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7ff42a8c5be6646ad3975f3a54c1eb, type: 3}
+  m_Name: DiffusionProfileList
+  m_EditorClassIdentifier: 
+  active: 1
+  diffusionProfiles:
+    m_OverrideState: 1
+    m_Value:
+    - {fileID: 11400000, guid: 350624900df51a4448774025ae0ffa47, type: 2}
+    - {fileID: 11400000, guid: 4eae6738161626b45ba7556ee92a4fbd, type: 2}
 --- !u!114 &4912995473310784290
 MonoBehaviour:
   m_ObjectHideFlags: 3

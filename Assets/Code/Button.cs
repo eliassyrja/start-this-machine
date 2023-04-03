@@ -20,8 +20,8 @@ public class Button : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		audioController = FindAnyObjectByType<AudioController>();
-		stateMachine = FindAnyObjectByType<StateMachine>();
+		audioController = FindObjectOfType<AudioController>();
+		stateMachine = FindObjectOfType<StateMachine>();
 		//Initialize button state to be false = off
 		buttonState = false;
 		clickable = true;
