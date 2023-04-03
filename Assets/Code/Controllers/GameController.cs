@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 using UnityEngine;
+using DepthOfField = UnityEngine.Rendering.HighDefinition.DepthOfField;
 
 public class GameController : MonoBehaviour
 {
@@ -9,7 +11,8 @@ public class GameController : MonoBehaviour
     private Canvas pauseMenu;
     private Canvas settingsMenu;
 
-    private PostProcessVolume volume;
+    private VolumeProfile profile;
+    private Volume volume;
     private DepthOfField depthOfField;
 
     private CrosshairController crosshairController;
@@ -18,8 +21,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        volume = GameObject.Find("Post FX").GetComponent<PostProcessVolume>();
-        volume.profile.TryGetSettings(out depthOfField);
+        volume = GameObject.Find("HDRP Post FX").GetComponent<Volume>();
+        profile = volume.sharedProfile;
+        profile.TryGet(out depthOfField);
         crosshairController = FindObjectOfType<CrosshairController>();
         stateMachine = FindObjectOfType<StateMachine>();
 
