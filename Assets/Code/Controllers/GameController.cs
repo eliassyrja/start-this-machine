@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public int maxFPS;
     private Canvas pauseMenu;
     private Canvas settingsMenu;
+    [SerializeField] private GameObject pauseMenuBlur;
 
     private VolumeProfile profile;
     private Volume volume;
@@ -21,6 +22,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenuBlur.SetActive(false);
+
         volume = GameObject.Find("HDRP Post FX").GetComponent<Volume>();
         profile = volume.sharedProfile;
         profile.TryGet(out depthOfField);
@@ -63,12 +66,14 @@ public class GameController : MonoBehaviour
             stateMachine.ChangeState(StateMachine.State.PauseMenu);
         }
         pauseMenu.enabled = true;
+        pauseMenuBlur.SetActive(true);
     }
 
     public void ClosePauseMenu()
     {
         stateMachine.ChangeState(stateMachine.GetPreviousState());
         pauseMenu.enabled = false;
+        pauseMenuBlur.SetActive(false);
     }
 
     public void ShowSettingsMenu()
