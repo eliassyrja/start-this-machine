@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Task1 : Task
 {
-    [SerializeField] private GameObject button1;
-    [SerializeField] private GameObject button2;
-    [SerializeField] private GameObject button3;
+    [SerializeField] private GameObject powerSwitch;
 
 	public override bool CheckTaskState()
 	{
-        return button1.GetComponent<Button>().buttonState && button2.GetComponent<Button>().buttonState && button3.GetComponent<Button>().buttonState;
+        return powerSwitch.GetComponent<Button>().buttonState;
     }
 }
