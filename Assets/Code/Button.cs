@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Button : MonoBehaviour
 {
-	private bool buttonState;
+	public bool buttonState;
 	private bool clickable;
 	[SerializeField] private float transitionTime;
 	public Light lightIndicator;
@@ -25,7 +25,6 @@ public class Button : MonoBehaviour
 		//Initialize button state to be false = off
 		buttonState = false;
 		clickable = true;
-		UseButton();
 	}
 
 	private void OnMouseOver()
@@ -38,29 +37,32 @@ public class Button : MonoBehaviour
 
 	private void UseButton()
 	{
-
 		audioController.Play("FlickSwitch");
 		Debug.Log("UseButton called");
 		if (buttonState)
 		{
+			buttonState = false;
 			buttonOffEvent.Invoke();
+			
 			Debug.Log("Button off");
 			lightIndicator.color = Color.red;
 			//Local rotations of the switch, current values eyeballed from editor
 			//transform.localRotation = Quaternion.Euler(22, 0, 0);
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), transitionTime));
-			buttonState = false;
+			
 		}
 		else
 		{
+			buttonState = true;
 			buttonOnEvent.Invoke();
+			
 
 			Debug.Log("Button on");
 			lightIndicator.color = Color.green;
 			//Local rotations of the switch, current values eyeballed from editor
 			//transform.localRotation = Quaternion.Euler(-22, 0, 0);
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
-			buttonState = true;
+			
 		}
 	}
 

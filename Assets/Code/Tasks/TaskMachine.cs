@@ -4,42 +4,24 @@ using UnityEngine;
 
 public class TaskMachine : MonoBehaviour
 {
-    public Task[] tasks;
-    // Start is called before the first frame update
-    void Start()
-    {
-		
-    }
+	[SerializeField] private int currentTask;
+	public GameObject allTasks;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void SubTaskDone(string _subTaskName)
+	// Start is called before the first frame update
+	void Start()
 	{
-		foreach (Task task in tasks)
+		currentTask = 1;
+	}
+
+	public void OnButtonClicked()
+	{
+		if(allTasks.transform.childCount > currentTask)
 		{
-            foreach (SubTask subTask in task.subTask)
-            {
-                if (subTask.subTaskName == _subTaskName)
-                {
-                    subTask.subTaskDone = true;
-                }
-            }
-            int subTasksCompeleted = 0;
-			foreach (SubTask subTask in task.subTask)
+			if (allTasks.transform.GetChild(currentTask-1).GetComponent<Task>().CheckTaskState())
 			{
-                if (subTask.subTaskDone)
-				{
-                    subTasksCompeleted++;
-				}
+				currentTask++;
+				OnButtonClicked();
 			}
-            if(subTasksCompeleted == task.subTask.Length && task.subTask.Length != 0)
-			{
-                task.taskDone = true;
-			}
-            
 		}
 	}
 }

@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Task
+public abstract class Task : MonoBehaviour
 {
-	public string taskName;
-	public bool taskDone;
-	public SubTask[] subTask;
+	public abstract bool CheckTaskState();
 }
