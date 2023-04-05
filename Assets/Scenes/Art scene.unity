@@ -7945,8 +7945,8 @@ MonoBehaviour:
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
-  m_ShapeWidth: 0.74
-  m_ShapeHeight: 0.3
+  m_ShapeWidth: 0.66
+  m_ShapeHeight: 0.19
   m_AspectRatio: 1
   m_ShapeRadius: 0.025
   m_SoftnessScale: 1
@@ -8054,7 +8054,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 400.68704
+  m_Intensity: 709.3503
   m_Range: 4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8095,7 +8095,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 0.74, y: 0.3}
+  m_AreaSize: {x: 0.66, y: 0.19}
   m_BounceIntensity: 1
   m_ColorTemperature: 5739
   m_UseColorTemperature: 1
