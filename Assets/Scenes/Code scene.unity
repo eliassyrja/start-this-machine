@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015683675, g: 0.010963157, b: 0.0072230883, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 623085600}
   buttonOnEvent:
@@ -46303,14 +46304,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 1
   transitionTime: 0.1
   lightIndicator: {fileID: 655847757}
   buttonOnEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
+      - m_Target: {fileID: 1948818817}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: TurnPowerOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46323,9 +46325,9 @@ MonoBehaviour:
   buttonOffEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
+      - m_Target: {fileID: 1948818817}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: TurnPowerOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57663,6 +57665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1865905659}
   buttonOnEvent:
@@ -58318,6 +58321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1672561433}
   buttonOnEvent:
@@ -64114,6 +64118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 381088427}
   buttonOnEvent:
@@ -64456,6 +64461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1974181856}
   buttonOnEvent:
@@ -64694,6 +64700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1861038944}
   buttonOnEvent:
@@ -65391,6 +65398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 320538691}
   buttonOnEvent:
@@ -66655,6 +66663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 238776036}
   buttonOnEvent:
@@ -72813,6 +72822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonState: 0
+  isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1239475065}
   buttonOnEvent:
@@ -73326,6 +73336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6df8d57bbe91784bb080afd755fec92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightsOnAtStart: 1
   maxFPS: 144
 --- !u!114 &1948818818
 MonoBehaviour:
