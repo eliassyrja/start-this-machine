@@ -23894,6 +23894,7 @@ Transform:
   - {fileID: 719780920}
   - {fileID: 673093156}
   - {fileID: 1314808422}
+  - {fileID: 5613569572838819396}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38658,7 +38659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6df8d57bbe91784bb080afd755fec92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightsOnAtStart: 0
+  lightsOnAtStart: 1
   maxFPS: 144
 --- !u!114 &1948818818
 MonoBehaviour:
@@ -41046,8 +41047,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5092646920054086910}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -4.32, z: -5.62}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -9.9657, y: -10.32311, z: 2.2909951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41055,8 +41056,8 @@ Transform:
   - {fileID: 4486173144981350504}
   - {fileID: 2429954790682842129}
   - {fileID: 8076868087546978890}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 794003950}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &5740981015885884792
 MeshFilter:
