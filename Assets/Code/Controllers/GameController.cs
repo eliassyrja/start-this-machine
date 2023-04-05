@@ -6,6 +6,7 @@ using DepthOfField = UnityEngine.Rendering.HighDefinition.DepthOfField;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private bool lightsOnAtStart;
     public int maxFPS;
     private Canvas pauseMenu;
     private Canvas settingsMenu;
@@ -13,10 +14,28 @@ public class GameController : MonoBehaviour
     private CrosshairController crosshairController;
     private StateMachine stateMachine;
 
+    public static bool powerOn;
+    private Button[] buttons;
+    private Light[] lights;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        lights = FindObjectsOfType<Light>();
+        buttons = FindObjectsOfType<Button>();
+		if (lightsOnAtStart)
+		{
+            powerOn = true;
+		}
+		else
+		{
+            powerOn = false;
+			foreach (Light light in lights)
+			{
+                light.enabled = false;
+			}
+        }
+        
         crosshairController = FindObjectOfType<CrosshairController>();
         stateMachine = FindObjectOfType<StateMachine>();
 
@@ -106,6 +125,44 @@ public class GameController : MonoBehaviour
         else
         {
         }
+    }
 
+    public void TurnPowerOn()
+	{
+        foreach (Light light in lights)
+        {
+            light.enabled = true;
+        }
+        foreach (Button button in buttons)
+        {
+            if (!button.isPowerSwitch)
+            {
+                //Invokes button onClick() -related events when power is received
+                button.ButtonStateEvent(button.buttonState);
+            }
+        }
+        powerOn = true;
+        Debug.Log(powerOn);
+    }
+    public void TurnPowerOff()
+    {
+        foreach (Light light in lights)
+        {
+            light.enabled = false;
+        }
+        foreach (Button button in buttons)
+		{
+			if (!button.isPowerSwitch)
+			{
+                //Invokes button onClick() -related events when power is received
+                button.ButtonStateEvent(button.buttonState);
+            }
+			else
+			{
+                button.lightIndicator.enabled = true;
+			}
+		}
+        powerOn = false;
+        Debug.Log(powerOn);
     }
 }

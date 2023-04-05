@@ -7,6 +7,7 @@ public class Button : MonoBehaviour
 {
 	public bool buttonState;
 	private bool clickable;
+	public bool isPowerSwitch;
 	[SerializeField] private float transitionTime;
 	public Light lightIndicator;
 	private AudioController audioController;
@@ -25,6 +26,7 @@ public class Button : MonoBehaviour
 		//Initialize button state to be false = off
 		buttonState = false;
 		clickable = true;
+		lightIndicator.enabled = false;
 	}
 
 	private void OnMouseOver()
@@ -41,28 +43,40 @@ public class Button : MonoBehaviour
 		Debug.Log("UseButton called");
 		if (buttonState)
 		{
-			buttonState = false;
-			buttonOffEvent.Invoke();
-			
-			Debug.Log("Button off");
-			lightIndicator.color = Color.red;
-			//Local rotations of the switch, current values eyeballed from editor
-			//transform.localRotation = Quaternion.Euler(22, 0, 0);
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), transitionTime));
-			
+			buttonState = false;
+			Debug.Log("Button off");
+
+			if (GameController.powerOn || isPowerSwitch)
+			{
+				lightIndicator.enabled = true;
+				ButtonStateEvent(false);
+			}
 		}
 		else
 		{
-			buttonState = true;
-			buttonOnEvent.Invoke();
-			
-
-			Debug.Log("Button on");
-			lightIndicator.color = Color.green;
-			//Local rotations of the switch, current values eyeballed from editor
-			//transform.localRotation = Quaternion.Euler(-22, 0, 0);
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
-			
+			buttonState = true;
+			Debug.Log("Button on");
+
+			if (GameController.powerOn || isPowerSwitch)
+			{
+				lightIndicator.enabled = true;
+				ButtonStateEvent(true);
+			}
+		}
+	}
+	public void ButtonStateEvent(bool state)
+	{
+		if (state)
+		{
+			lightIndicator.color = Color.green;
+			buttonOnEvent.Invoke();
+		}
+		else
+		{
+			lightIndicator.color = Color.red;
+			buttonOffEvent.Invoke();
 		}
 	}
 
