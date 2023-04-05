@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   quality:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   enabled:
     m_OverrideState: 1
@@ -27,10 +27,10 @@ MonoBehaviour:
     m_Value: 1
   m_MinSmoothness:
     m_OverrideState: 1
-    m_Value: 0.9
+    m_Value: 0.653
   m_SmoothnessFadeStart:
-    m_OverrideState: 0
-    m_Value: 0.9
+    m_OverrideState: 1
+    m_Value: 0.935
   reflectSky:
     m_OverrideState: 0
     m_Value: 1
@@ -38,11 +38,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   depthBufferThickness:
-    m_OverrideState: 0
-    m_Value: 0.01
+    m_OverrideState: 1
+    m_Value: 0.506
   screenFadeDistance:
-    m_OverrideState: 0
-    m_Value: 0.1
+    m_OverrideState: 1
+    m_Value: 0.915
   accumulationFactor:
     m_OverrideState: 0
     m_Value: 0.75
@@ -68,7 +68,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   m_RayMaxIterations:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 32
   rayMiss:
     m_OverrideState: 0
@@ -134,11 +134,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 10
   directionalTransmissionMultiplier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   cascadeShadowSplitCount:
-    m_OverrideState: 0
-    m_Value: 4
+    m_OverrideState: 1
+    m_Value: 1
   cascadeShadowSplit0:
     m_OverrideState: 0
     m_Value: 0.05
@@ -172,18 +172,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
   m_Name: VisualEnvironment
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   skyType:
     m_OverrideState: 1
     m_Value: 1
   cloudType:
     m_OverrideState: 1
-    m_Value: 0
-  skyAmbientMode:
-    m_OverrideState: 1
     m_Value: 1
+  skyAmbientMode:
+    m_OverrideState: 0
+    m_Value: 0
   windOrientation:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   windSpeed:
     m_OverrideState: 1
@@ -258,6 +258,35 @@ MonoBehaviour:
   - {fileID: -5441976977162871502}
   - {fileID: -3965723073166777242}
   - {fileID: 3303400194912131372}
+  - {fileID: 3132110579959833093}
+--- !u!114 &3132110579959833093
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
+  m_Name: IndirectLightingController
+  m_EditorClassIdentifier: 
+  active: 1
+  indirectDiffuseLightingMultiplier:
+    m_OverrideState: 1
+    m_Value: 1.58
+  indirectDiffuseLightingLayers:
+    m_OverrideState: 0
+    m_Value: 255
+  reflectionLightingMultiplier:
+    m_OverrideState: 1
+    m_Value: 7.7
+  reflectionLightingLayers:
+    m_OverrideState: 0
+    m_Value: 255
+  reflectionProbeIntensityMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &3303400194912131372
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -279,7 +308,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.111
+    m_Value: 0.21
   m_MaxSamples:
     m_OverrideState: 1
     m_Value: 5
@@ -307,7 +336,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 1.8488829
+    m_Value: 0.7135347
   compensation:
     m_OverrideState: 0
     m_Value: 0
@@ -446,30 +475,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9008a067f4d626c4d8bc4bc48f04bb89, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   quality:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 3
   rayTracing:
     m_OverrideState: 0
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.28
+    m_Value: 1.64
   directLightingStrength:
     m_OverrideState: 1
-    m_Value: 0.204
+    m_Value: 0.824
   radius:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0.25
   spatialBilateralAggressiveness:
-    m_OverrideState: 0
-    m_Value: 0.15
+    m_OverrideState: 1
+    m_Value: 0.281
   temporalAccumulation:
     m_OverrideState: 0
     m_Value: 1
   ghostingReduction:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.5
   blurSharpness:
     m_OverrideState: 0
@@ -498,22 +527,22 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 40
   m_BilateralUpsample:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   m_DirectionCount:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 2
   m_RayLength:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 3
   m_SampleCount:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 2
   m_Denoise:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   m_DenoiserRadius:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.5
 --- !u!114 &6929561144608356584
 MonoBehaviour:
