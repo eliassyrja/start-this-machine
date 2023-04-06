@@ -1971,7 +1971,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb3d395171539945a7929a4782e1c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1: {fileID: 3435309491812797063}
+  rockerSwitch1: {fileID: 0}
+  rockerSwitch2: {fileID: 0}
+  screen1: {fileID: 0}
+  screen2: {fileID: 0}
 --- !u!1 &320241855
 GameObject:
   m_ObjectHideFlags: 1
@@ -45713,40 +45716,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 1
   transitionTime: 0.1
   lightIndicator: {fileID: 655847757}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: TurnPowerOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1948818817}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: TurnPowerOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &994420696
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -57074,40 +57053,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1865905659}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &1238241755
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -57513,40 +57468,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1672561433}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &1254981070
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63414,40 +63345,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1974181856}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &1466375375
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63653,40 +63560,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1861038944}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &1474850963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64351,40 +64234,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 320538691}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &1660440750
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65531,40 +65390,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 238776036}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1291380670}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &1806212458
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -73008,9 +72843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0feca7b20c241d48b0d05db1e2655d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1: {fileID: 1660440746}
-  button2: {fileID: 1474850959}
-  button3: {fileID: 1238241751}
+  fuelFlowValve1: {fileID: 0}
+  fuelFlowValve2: {fileID: 0}
+  fuelFlowValve3: {fileID: 0}
+  switchPumpOnButton: {fileID: 0}
 --- !u!1 &2124845149
 GameObject:
   m_ObjectHideFlags: 0
@@ -73312,6 +73148,83 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147262835}
   m_Mesh: {fileID: -9179009570204904856, guid: 4ce69657928ac1a4291cd37b9139c398, type: 3}
+--- !u!4 &543450651990394346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147517218640}
+  m_LocalRotation: {x: -0.09986621, y: 0.8905455, z: 0.21842906, w: 0.38632143}
+  m_LocalPosition: {x: -2.4753275, y: -1.1491164, z: -4.909546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: -145.66, y: -49.600006, z: 0}
+--- !u!1 &919132147517218640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543450651990394346}
+  - component: {fileID: 3469287838122019407}
+  - component: {fileID: 1711813855132810885}
+  - component: {fileID: 3469287838122019408}
+  - component: {fileID: 3469287838122019409}
+  m_Layer: 0
+  m_Name: Switch_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1711813855132810885
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147517218640}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2410215664312084352
 GameObject:
   m_ObjectHideFlags: 0
@@ -73358,6 +73271,53 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!33 &3469287838122019407
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147517218640}
+  m_Mesh: {fileID: -8746891500784172985, guid: fc6f90307580cb34d9fe3fd2dca0ca36, type: 3}
+--- !u!136 &3469287838122019408
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147517218640}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06635008
+  m_Height: 0.29
+  m_Direction: 2
+  m_Center: {x: 1.12412524e-10, y: 0.0036136992, z: -0.03}
+--- !u!114 &3469287838122019409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147517218640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c583cec59be8a240bc3041f0b0032eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonValue: 0
+  rotationSpeed: 50
+  rotaryValueMin: 180
+  rotaryValueMax: 480
 --- !u!23 &4086585862910910680
 MeshRenderer:
   m_ObjectHideFlags: 0

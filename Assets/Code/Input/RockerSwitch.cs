@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider))]
 public class RockerSwitch : MonoBehaviour
 {
 	[SerializeField] public bool buttonState;
@@ -37,7 +38,7 @@ public class RockerSwitch : MonoBehaviour
 	private void UseButton()
 	{
 		audioController.Play("FlickSwitch");
-		Debug.Log("UseButton called");
+		Debug.Log("UseSwitch called");
 		if (buttonState)
 		{
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(24, 0, 0), Quaternion.Euler(-7, 0, 0), transitionTime));
