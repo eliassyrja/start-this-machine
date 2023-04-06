@@ -7,12 +7,14 @@ using UnityEngine.Events;
 public class RotaryKnob : MonoBehaviour
 {
 	[SerializeField] public float buttonValue;
-	private float valueRangeMin = 0f;
-	private float valueRangeMax = 1f;
-	[SerializeField] private float rotationSpeed;
+	[SerializeField] private float valueRangeMin = 0f;
+	[SerializeField] private float valueRangeMax = 5f;
 
+	[SerializeField] private float rotationSpeed;
 	[SerializeField] private float rotaryValueMin = 0f;
-	[SerializeField] private float rotaryValueMax = 180f;
+	[SerializeField] private float rotaryValueMax = 300f;
+
+	[SerializeField] private float horizontal;
 
 	private StateMachine stateMachine;
 
@@ -20,7 +22,6 @@ public class RotaryKnob : MonoBehaviour
 	void Start()
 	{
 		stateMachine = FindObjectOfType<StateMachine>();
-		//Initialize button state to be false = off
 		buttonValue = valueRangeMin;
 	}
 
@@ -28,6 +29,19 @@ public class RotaryKnob : MonoBehaviour
 	{
 		if (stateMachine.GetCurrentState() == StateMachine.State.FreeLook)
 		{
+			RotateKnob();
 		}
+	}
+	private void RotateKnob()
+	{
+		horizontal += Input.GetAxis("Mouse X") * rotationSpeed;
+		horizontal = Mathf.Clamp(horizontal,  rotaryValueMin, rotaryValueMax);
+		Vector3 oldRotation;
+		oldRotation = transform.localRotation.eulerAngles;
+
+		oldRotation.z = horizontal;
+		transform.rotation = Quaternion.Euler(oldRotation);
+
+		buttonValue = Mathf.Lerp(valueRangeMin, valueRangeMax, horizontal/rotaryValueMax);
 	}
 }
