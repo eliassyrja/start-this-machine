@@ -9,13 +9,15 @@ public class InspectableObject : MonoBehaviour
     [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode endInteractionKey = KeyCode.E;
 
+    [SerializeField] private GameObject innerItem;
+
     //Scale of inspected object.
     [SerializeField] private float inspectedItemScaleChange;
 
     //Speed of object rotation.
     [SerializeField] private float inspectionSpeed;
 
-    private GameController gameController;
+    private InventoryController inventoryController;
     private StateMachine stateMachine;
     private GameObject inspectedObject;
     private CameraController cameraController;
@@ -28,8 +30,8 @@ public class InspectableObject : MonoBehaviour
 
     public void Start()
     {
+        inventoryController = FindObjectOfType<InventoryController>();
         audioController = FindObjectOfType<AudioController>();
-        gameController = FindObjectOfType<GameController>();
         stateMachine = FindObjectOfType<StateMachine>();
         cameraController = FindObjectOfType<CameraController>();
     }
@@ -55,6 +57,16 @@ public class InspectableObject : MonoBehaviour
                 audioController.Play(audioClipTypePickup.ToString());
             }
         }
+        if(stateMachine.GetCurrentState() == StateMachine.State.Inspection)
+		{
+			if (gameObject.GetComponent<InventoryItem>())
+			{
+                inventoryController.AddItem(gameObject.GetComponent<InventoryItem>());
+                cameraController.ToggleInspectionCamera(false);
+                Destroy(gameObject);
+            }
+            
+		}
     }
 
     public void OnMouseDrag()
@@ -94,9 +106,14 @@ public class InspectableObject : MonoBehaviour
     {
         Debug.Log("EndInspection called.");
 
+        if (innerItem != null)
+        {
+            innerItem.GetComponent<InnerInspectableObject>().ResetTransform();
+        }
         inspectedObject.transform.SetPositionAndRotation(startingPosition, startingRotation);
         inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
         inspectedObject = null;
         cameraController.ToggleInspectionCamera(false);
+        
     }
 }
