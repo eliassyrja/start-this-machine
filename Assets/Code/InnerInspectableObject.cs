@@ -6,11 +6,12 @@ public class InnerInspectableObject : MonoBehaviour
 {
     private StateMachine stateMachine;
     private Vector3 startLocalPosition;
+
     [SerializeField] private AnimationCurve transitionCurve;
     [SerializeField] private float offsetTransitionTime = 0.5f;
     [SerializeField] private float localPositionZOffset = -0.018f;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         startLocalPosition = transform.localPosition;
         stateMachine = FindObjectOfType<StateMachine>();

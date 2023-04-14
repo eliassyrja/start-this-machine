@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private bool lightsOnAtStart;
     public int maxFPS;
+    private InspectableObject currentInspectableObject;
+
+
     private Canvas pauseMenu;
     private Canvas settingsMenu;
 
@@ -66,6 +69,15 @@ public class GameController : MonoBehaviour
                 CloseSettingsMenu();
             }
         }
+    }
+
+    public void SetCurrentInspectableObject(InspectableObject _currentInspectableObject)
+	{
+        currentInspectableObject = _currentInspectableObject;
+	}
+    public InspectableObject GetCurrentInspectableObject()
+    {
+        return currentInspectableObject;
     }
 
     public void ShowPauseMenu()

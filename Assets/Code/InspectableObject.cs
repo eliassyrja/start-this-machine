@@ -17,26 +17,33 @@ public class InspectableObject : MonoBehaviour
     //Speed of object rotation.
     [SerializeField] private float inspectionSpeed;
 
+    [SerializeField] private float maxZoom = 0.5f;
+    [SerializeField] private float zoomSpeed = 0.5f;
+    [SerializeField] private string audioClipTypePickup;
+    [SerializeField] private string audioClipTypePlace;
+
+    private Transform cameraContainer;
     private InventoryController inventoryController;
     private StateMachine stateMachine;
     private GameObject inspectedObject;
     private CameraController cameraController;
     private AudioController audioController;
-    [SerializeField] private string audioClipTypePickup;
-    [SerializeField] private string audioClipTypePlace;
+    private GameController gameController;
 
     private Vector3 startingPosition;
     private Quaternion startingRotation;
 
-    public void Start()
+    private void Start()
     {
+        cameraContainer = GameObject.Find("CameraContainer").transform;
+        gameController = FindAnyObjectByType<GameController>();
         inventoryController = FindObjectOfType<InventoryController>();
         audioController = FindObjectOfType<AudioController>();
         stateMachine = FindObjectOfType<StateMachine>();
         cameraController = FindObjectOfType<CameraController>();
     }
 
-    public void Update()
+    private void Update()
     {
         if (stateMachine.GetCurrentState() == StateMachine.State.Inspection)
         {
@@ -47,7 +54,8 @@ public class InspectableObject : MonoBehaviour
             }
         }
     }
-    public void OnMouseOver()
+
+    private void OnMouseOver()
     {
         if (stateMachine.GetCurrentState() == StateMachine.State.FreeLook)
         {
@@ -57,7 +65,7 @@ public class InspectableObject : MonoBehaviour
                 audioController.Play(audioClipTypePickup.ToString());
             }
         }
-        if(stateMachine.GetCurrentState() == StateMachine.State.Inspection)
+        if(stateMachine.GetCurrentState() == StateMachine.State.Inspection && Input.GetKeyDown(KeyCode.C))
 		{
 			if (gameObject.GetComponent<InventoryItem>())
 			{
@@ -69,9 +77,9 @@ public class InspectableObject : MonoBehaviour
 		}
     }
 
-    public void OnMouseDrag()
+    private void OnMouseDrag()
     {
-        if (stateMachine.GetCurrentState() == StateMachine.State.Inspection)
+        if (stateMachine.GetCurrentState() == StateMachine.State.Inspection && inspectedObject == gameObject)
         {
             InspectItem();
         }
@@ -90,13 +98,14 @@ public class InspectableObject : MonoBehaviour
 
     private void SetupInspection()
     {
+        gameController.SetCurrentInspectableObject(gameObject.GetComponent<InspectableObject>());
         Debug.Log("SetupInspection called.");
         inspectedObject = gameObject;
 
         startingPosition = gameObject.transform.position;
         startingRotation = gameObject.transform.rotation;
 
-        gameObject.transform.position = Camera.main.transform.position + new Vector3(0, 0, 1);
+        gameObject.transform.position = cameraContainer.position + new Vector3(0, 0, 1);
         gameObject.transform.localScale -= new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
 
         cameraController.ToggleInspectionCamera(true);
@@ -104,6 +113,7 @@ public class InspectableObject : MonoBehaviour
 
     private void EndInspection()
     {
+        gameController.SetCurrentInspectableObject(null);
         Debug.Log("EndInspection called.");
 
         if (innerItem != null)
@@ -114,6 +124,15 @@ public class InspectableObject : MonoBehaviour
         inspectedObject.transform.localScale += new Vector3(inspectedItemScaleChange, inspectedItemScaleChange, inspectedItemScaleChange);
         inspectedObject = null;
         cameraController.ToggleInspectionCamera(false);
-        
+    }
+
+    public float GetMaxZoom()
+	{
+        return maxZoom;
+	}
+
+    public float GetZoomSpeed()
+    {
+        return zoomSpeed;
     }
 }

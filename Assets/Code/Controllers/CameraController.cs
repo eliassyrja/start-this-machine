@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
 	Quaternion targetRotation;
 
 	private StateMachine stateMachine;
+	[SerializeField] private Transform cameraContainer;
 
 	// Start is called before the first frame update
 	void Start()
@@ -60,15 +61,36 @@ public class CameraController : MonoBehaviour
 		verticalMovement = Mathf.Clamp(verticalMovement, ceilingAngleLimit, floorAngleLimit);
 
 		//Transform camera angle based on mouse movement.
-		transform.eulerAngles = new Vector3(verticalMovement, horizontalMovement, 0.0f);
+		cameraContainer.localEulerAngles = new Vector3(verticalMovement, horizontalMovement, 0.0f);
 
+	}
+	private IEnumerator LerpInspection(Quaternion startPosition, Quaternion endPosition, bool isEnabled)
+	{
+		float startTime = 0f;
+		while (startTime < rotationTime)
+		{
+			float t = startTime / rotationTime;
+			float rotationValue = transitionCurve.Evaluate(t);
+			cameraContainer.rotation = Quaternion.Slerp(startPosition, endPosition, rotationValue);
+			startTime += Time.deltaTime;
+			yield return null;
+		}
+		cameraContainer.rotation = endPosition;
+		if (!isEnabled)
+		{
+			stateMachine.ChangeState(StateMachine.State.FreeLook);
+		}
+		else
+		{
+			stateMachine.ChangeState(StateMachine.State.Inspection);
+		}
 	}
 
 	public void ToggleInspectionCamera(bool isEnabled)
 	{
 		if (isEnabled)
 		{
-			startRotation = Camera.main.transform.rotation;
+			startRotation = cameraContainer.rotation;
 		}
 		stateMachine.ChangeState(StateMachine.State.Transition);
 		targetRotation = Quaternion.Euler(0, 0, 0);
@@ -83,25 +105,5 @@ public class CameraController : MonoBehaviour
 		}
 
 	}
-	private IEnumerator LerpInspection(Quaternion startPosition, Quaternion endPosition, bool isEnabled)
-	{
-		float startTime = 0f;
-		while (startTime < rotationTime)
-		{
-			float t = startTime / rotationTime;
-			float rotationValue = transitionCurve.Evaluate(t);
-			Camera.main.transform.rotation = Quaternion.Slerp(startPosition, endPosition, rotationValue);
-			startTime += Time.deltaTime;
-			yield return null;
-		}
-		Camera.main.transform.rotation = endPosition;
-		if (!isEnabled)
-		{
-			stateMachine.ChangeState(StateMachine.State.FreeLook);
-		}
-		else
-		{
-			stateMachine.ChangeState(StateMachine.State.Inspection);
-		}
-	}
+	
 }

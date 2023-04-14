@@ -510,6 +510,8 @@ MonoBehaviour:
   innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  maxZoom: 0.2
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &74493657
@@ -777,13 +779,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129519885}
   m_LocalRotation: {x: 0.11646187, y: -0, z: -0, w: 0.9931952}
-  m_LocalPosition: {x: -10.615339, y: -0.8044328, z: 1.8778267}
+  m_LocalPosition: {x: 0, y: -0.478, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 949404387}
   - {fileID: 1457054719}
-  m_Father: {fileID: 423028159}
-  m_RootOrder: 0
+  m_Father: {fileID: 244736958}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 13.376, y: 0, z: 0}
 --- !u!114 &129519887
 MonoBehaviour:
@@ -859,9 +862,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomKey: 324
   cam: {fileID: 129519891}
-  startingFov: 50
-  zoomInFov: 20
-  zoomSpeed: 35
+  startingZoom: 0
+  maxZoom: 2
+  zoomSpeed: 5
 --- !u!114 &129519889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,6 +925,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotationTime: 0.5
+  cameraContainer: {fileID: 244736958}
 --- !u!81 &129519890
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1762,6 +1766,38 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!1 &244736957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 244736958}
+  m_Layer: 0
+  m_Name: CameraContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &244736958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244736957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 129519886}
+  m_Father: {fileID: 423028159}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &270817244
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,12 +2922,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423028158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.615339, y: 1.5144328, z: -8.877827}
+  m_LocalPosition: {x: -0.071, y: 0.236, z: -7.239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 129519886}
-  - {fileID: 949404387}
+  - {fileID: 244736958}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39692,6 +39727,8 @@ MonoBehaviour:
   innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: 
   audioClipTypePlace: 
 --- !u!65 &802891012
@@ -40232,6 +40269,8 @@ MonoBehaviour:
   innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.1
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &859605148
@@ -40647,13 +40686,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949404385}
-  m_LocalRotation: {x: 0.11646187, y: -0, z: -0, w: 0.9931952}
-  m_LocalPosition: {x: -10.615339, y: -0.8044328, z: 1.8778267}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 423028159}
-  m_RootOrder: 1
+  m_Father: {fileID: 129519886}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &949404388
 MonoBehaviour:
@@ -46163,6 +46202,8 @@ MonoBehaviour:
   innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.15
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &1006926310
@@ -72920,6 +72961,8 @@ MonoBehaviour:
   innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.1
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &2027281479
@@ -73063,6 +73106,8 @@ MonoBehaviour:
   innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.1
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &2035473305
@@ -74308,6 +74353,8 @@ MonoBehaviour:
   innerItem: {fileID: 5029170946089035586}
   inspectedItemScaleChange: 0
   inspectionSpeed: 4
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: 
   audioClipTypePlace: 
 --- !u!65 &8582464155126099268

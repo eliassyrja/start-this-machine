@@ -7,6 +7,7 @@ public class StateMachine : MonoBehaviour
 {
     private GameController gameController;
     private DebugController debug;
+    private ZoomController zoomController;
 
     public enum State
     {
@@ -16,12 +17,13 @@ public class StateMachine : MonoBehaviour
         Transition
     }
 
-    State currentState;
-    State previousState;
+    private State currentState;
+    private State previousState;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        zoomController = Camera.main.GetComponent<ZoomController>();
         gameController = FindObjectOfType<GameController>();
         debug = FindObjectOfType<DebugController>();
         currentState = State.FreeLook;
@@ -31,7 +33,6 @@ public class StateMachine : MonoBehaviour
 
     public void ChangeState(State newState)
     {
-
         previousState = currentState;
         currentState = newState;
         debug.UpdateStateText(currentState.ToString(), previousState.ToString());
@@ -44,6 +45,7 @@ public class StateMachine : MonoBehaviour
         if (previousState == State.Inspection)
         {
             gameController.ToggleDepthOfField(false);
+            zoomController.SetDefaultZoomParameters();
         }
 
         switch (newState)
@@ -54,6 +56,7 @@ public class StateMachine : MonoBehaviour
             case State.Inspection:
                 gameController.ToggleDepthOfField(true);
                 gameController.ShowCursor();
+                zoomController.ChangeZoomParameters(gameController.GetCurrentInspectableObject());
                 break;
             case State.PauseMenu:
                 gameController.ShowCursor();
