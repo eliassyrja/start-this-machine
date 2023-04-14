@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class Task3 : Task
 {
-    [SerializeField] private GameObject button1;
-    [SerializeField] private GameObject button2;
-    [SerializeField] private GameObject button3;
+    [SerializeField] private GameObject fuelFlowValve1;
+    [SerializeField] private GameObject fuelFlowValve2;
+    [SerializeField] private GameObject fuelFlowValve3;
+    [SerializeField] private GameObject switchPumpOnButton; //Acts as enter
+
 
     public override bool CheckTaskState()
     {
-        return button1.GetComponent<Button>().buttonState && button2.GetComponent<Button>().buttonState && button3.GetComponent<Button>().buttonState;
+        if (fuelFlowValve1.GetComponent<ToggleSwitch>().switchState && fuelFlowValve2.GetComponent<ToggleSwitch>().switchState && fuelFlowValve3.GetComponent<ToggleSwitch>().switchState)
+        {
+            // Additional functionality here
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

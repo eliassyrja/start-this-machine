@@ -15,14 +15,14 @@ public class GameController : MonoBehaviour
     private StateMachine stateMachine;
 
     public static bool powerOn;
-    private Button[] buttons;
+    private ToggleSwitch[] buttons;
     private Light[] lights;
 
     // Start is called before the first frame update
     void Start()
     {
         lights = FindObjectsOfType<Light>();
-        buttons = FindObjectsOfType<Button>();
+        buttons = FindObjectsOfType<ToggleSwitch>();
 		if (lightsOnAtStart)
 		{
             powerOn = true;
@@ -133,12 +133,12 @@ public class GameController : MonoBehaviour
         {
             light.enabled = true;
         }
-        foreach (Button button in buttons)
+        foreach (ToggleSwitch button in buttons)
         {
             if (!button.isPowerSwitch)
             {
                 //Invokes button onClick() -related events when power is received
-                button.ButtonStateEvent(button.buttonState);
+                button.SwitchStateEvent(button.switchState);
             }
         }
         powerOn = true;
@@ -150,12 +150,12 @@ public class GameController : MonoBehaviour
         {
             light.enabled = false;
         }
-        foreach (Button button in buttons)
+        foreach (ToggleSwitch button in buttons)
 		{
 			if (!button.isPowerSwitch)
 			{
                 //Invokes button onClick() -related events when power is received
-                button.ButtonStateEvent(button.buttonState);
+                button.SwitchStateEvent(button.switchState);
             }
 			else
 			{

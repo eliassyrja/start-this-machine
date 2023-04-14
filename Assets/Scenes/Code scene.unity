@@ -1972,9 +1972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb3d395171539945a7929a4782e1c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
+  rockerSwitch1: {fileID: 0}
+  rockerSwitch2: {fileID: 0}
+  screen1: {fileID: 0}
+  screen2: {fileID: 0}
 --- !u!1 &320241855
 GameObject:
   m_ObjectHideFlags: 1
@@ -45966,14 +45967,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 1
   transitionTime: 0.1
   lightIndicator: {fileID: 655847757}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
       m_Calls: []
-  buttonOffEvent:
+  switchOffEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &994420696
@@ -57322,14 +57323,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1865905659}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
       m_Calls: []
-  buttonOffEvent:
+  switchOffEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &1238241755
@@ -57737,14 +57738,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1672561433}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
       m_Calls: []
-  buttonOffEvent:
+  switchOffEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &1254981070
@@ -63614,14 +63615,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1974181856}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
       m_Calls: []
-  buttonOffEvent:
+  switchOffEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &1466375375
@@ -63829,14 +63830,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 1861038944}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
       m_Calls: []
-  buttonOffEvent:
+  switchOffEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &1474850963
@@ -64658,14 +64659,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 320538691}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
       m_Calls: []
-  buttonOffEvent:
+  switchOffEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &1660440750
@@ -65814,14 +65815,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 238776036}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
       m_Calls: []
-  buttonOffEvent:
+  switchOffEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &1806212458
@@ -73353,9 +73354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0feca7b20c241d48b0d05db1e2655d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
+  fuelFlowValve1: {fileID: 0}
+  fuelFlowValve2: {fileID: 0}
+  fuelFlowValve3: {fileID: 0}
+  switchPumpOnButton: {fileID: 0}
 --- !u!1 &2124845149
 GameObject:
   m_ObjectHideFlags: 0
@@ -73904,6 +73906,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c583cec59be8a240bc3041f0b0032eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonValue: 0
+  valueRangeMin: 0
+  valueRangeMax: 20
+  rotationSpeed: 20
+  rotaryValueMin: 0
+  rotaryValueMax: 300
+  horizontal: 0
 --- !u!1 &3592797195297905155
 GameObject:
   m_ObjectHideFlags: 0
@@ -74205,6 +74214,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4673c520b7d64041b6a14499e632120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonState: 0
+  transitionTime: 0.1
+  buttonOnEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1291380670}
+        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonOffEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1291380670}
+        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!65 &6993086876193568018
 BoxCollider:
   m_ObjectHideFlags: 0

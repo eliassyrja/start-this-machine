@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Button : MonoBehaviour
+[RequireComponent(typeof(Collider))]
+public class ToggleSwitch : MonoBehaviour
 {
-	public bool buttonState;
+	public bool switchState;
 	private bool clickable;
 	public bool isPowerSwitch;
 	[SerializeField] private float transitionTime;
@@ -15,8 +16,8 @@ public class Button : MonoBehaviour
 	private StateMachine stateMachine;
 
 	//Event for calling different functions on different buttons
-	[SerializeField] private UnityEvent buttonOnEvent;
-	[SerializeField] private UnityEvent buttonOffEvent;
+	[SerializeField] private UnityEvent switchOnEvent;
+	[SerializeField] private UnityEvent switchOffEvent;
 
 	// Start is called before the first frame update
 	void Start()
@@ -24,7 +25,7 @@ public class Button : MonoBehaviour
 		audioController = FindObjectOfType<AudioController>();
 		stateMachine = FindObjectOfType<StateMachine>();
 		//Initialize button state to be false = off
-		buttonState = false;
+		switchState = false;
 		clickable = true;
 		lightIndicator.enabled = false;
 	}
@@ -33,50 +34,50 @@ public class Button : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Mouse0) && clickable && stateMachine.GetCurrentState() == StateMachine.State.FreeLook)
 		{
-			UseButton();
+			UseSwitch();
 		}
 	}
 
-	private void UseButton()
+	private void UseSwitch()
 	{
 		audioController.Play("FlickSwitch");
-		Debug.Log("UseButton called");
-		if (buttonState)
+		Debug.Log("UseSwitch called");
+		if (switchState)
 		{
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), transitionTime));
-			buttonState = false;
-			Debug.Log("Button off");
+			switchState = false;
+			Debug.Log("ToggleSwitch off");
 
 			if (GameController.powerOn || isPowerSwitch)
 			{
 				lightIndicator.enabled = true;
-				ButtonStateEvent(false);
+				SwitchStateEvent(false);
 			}
 		}
 		else
 		{
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
-			buttonState = true;
-			Debug.Log("Button on");
+			switchState = true;
+			Debug.Log("ToggleSwitch on");
 
 			if (GameController.powerOn || isPowerSwitch)
 			{
 				lightIndicator.enabled = true;
-				ButtonStateEvent(true);
+				SwitchStateEvent(true);
 			}
 		}
 	}
-	public void ButtonStateEvent(bool state)
+	public void SwitchStateEvent(bool state)
 	{
 		if (state)
 		{
 			lightIndicator.color = Color.green;
-			buttonOnEvent.Invoke();
+			switchOnEvent.Invoke();
 		}
 		else
 		{
 			lightIndicator.color = Color.red;
-			buttonOffEvent.Invoke();
+			switchOffEvent.Invoke();
 		}
 	}
 
