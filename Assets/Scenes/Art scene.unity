@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004785304, g: 0.0041427794, b: 0.0032543563, a: 1}
+  m_IndirectSpecularColor: {r: 0.0047854423, g: 0.0041425633, b: 0.003254949, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -860,13 +860,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129519885}
   m_LocalRotation: {x: 0.11646187, y: -0, z: -0, w: 0.9931952}
-  m_LocalPosition: {x: -10.615339, y: -0.8044328, z: 1.8778267}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1457054719}
-  m_Father: {fileID: 423028159}
-  m_RootOrder: 0
+  - {fileID: 949404387}
+  m_Father: {fileID: 1196176404}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 13.376, y: 0, z: 0}
 --- !u!114 &129519887
 MonoBehaviour:
@@ -922,8 +923,8 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -942,9 +943,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomKey: 324
   cam: {fileID: 129519891}
-  startingFov: 65
-  zoomInFov: 20
-  zoomSpeed: 35
+  startingZoom: 0
+  maxZoom: 2
+  zoomSpeed: 5
 --- !u!114 &129519889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,6 +1006,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotationTime: 0.5
+  cameraContainer: {fileID: 1196176404}
 --- !u!81 &129519890
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1044,9 +1046,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.2
   far clip plane: 1000
-  field of view: 50
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -1500,8 +1502,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 323
   endInteractionKey: 101
+  innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &260456434
@@ -2269,12 +2274,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423028158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.615339, y: 1.5144328, z: -8.877827}
+  m_LocalPosition: {x: -0.063, y: 0.307, z: -7.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 129519886}
-  - {fileID: 949404387}
+  - {fileID: 1196176404}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24458,13 +24462,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949404385}
-  m_LocalRotation: {x: 0.11646187, y: -0, z: -0, w: 0.9931952}
-  m_LocalPosition: {x: -10.615339, y: -0.8044328, z: 1.8778267}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 423028159}
-  m_RootOrder: 1
+  m_Father: {fileID: 129519886}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &949404388
 MonoBehaviour:
@@ -30037,6 +30041,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1196176403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196176404}
+  m_Layer: 0
+  m_Name: CameraContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196176404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196176403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 129519886}
+  m_Father: {fileID: 423028159}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1211839197
 GameObject:
@@ -36862,8 +36898,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 323
   endInteractionKey: 101
+  innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.5
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: 
   audioClipTypePlace: 
 --- !u!65 &1554010243
@@ -38130,148 +38169,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943f2c229f7684e42bae657a707fc1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonState: 0
+  switchState: 0
   isPowerSwitch: 0
   transitionTime: 0.1
   lightIndicator: {fileID: 238776036}
-  buttonOnEvent:
+  switchOnEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  buttonOffEvent:
+      m_Calls: []
+  switchOffEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1948818821}
-        m_TargetAssemblyTypeName: TaskMachine, Assembly-CSharp
-        m_MethodName: SubTaskDone
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Treeko SubTask
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!23 &1806212458
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41473,8 +41380,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 323
   endInteractionKey: 101
+  innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.1
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &3469287836534505891
@@ -41520,8 +41430,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 323
   endInteractionKey: 101
+  innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.15
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &3469287836580205258
@@ -41567,8 +41480,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 323
   endInteractionKey: 101
+  innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.1
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &3469287837806358063
@@ -41614,8 +41530,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 323
   endInteractionKey: 101
+  innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.1
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: CerealBoxPickup
   audioClipTypePlace: CerealBoxPickup
 --- !u!65 &3469287838285298939
@@ -41862,8 +41781,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 323
   endInteractionKey: 101
+  innerItem: {fileID: 0}
   inspectedItemScaleChange: 0.15
   inspectionSpeed: 20
+  maxZoom: 0.5
+  zoomSpeed: 0.5
   audioClipTypePickup: NES_pickup
   audioClipTypePlace: 
 --- !u!65 &4295758040439906856
