@@ -9,7 +9,9 @@ public class InnerInspectableObject : MonoBehaviour
 
     [SerializeField] private AnimationCurve transitionCurve;
     [SerializeField] private float offsetTransitionTime = 0.5f;
-    [SerializeField] private float localPositionZOffset = -0.018f;
+    [SerializeField] private float localPositionOffset = -0.018f;
+    private enum Axis { X, Y, Z};
+    [SerializeField] private Axis offsetAxis;
 
     private void Start()
     {
@@ -28,7 +30,24 @@ public class InnerInspectableObject : MonoBehaviour
     private IEnumerator LerpOffset()
 	{
         Vector3 startPosition = transform.localPosition;
-        Vector3 endPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, localPositionZOffset);
+        Vector3 endPosition;
+
+        switch (offsetAxis)
+		{
+			case Axis.X:
+                endPosition = new Vector3(localPositionOffset, transform.localPosition.y, transform.localPosition.z);
+                break;
+			case Axis.Y:
+                endPosition = new Vector3(transform.localPosition.x, localPositionOffset, transform.localPosition.z);
+                break;
+			case Axis.Z:
+                endPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, localPositionOffset);
+                break;
+			default:
+                endPosition = new Vector3(0f, 0f, 0f);
+				break;
+		}
+		
         float time = 0f;
         while(time <= offsetTransitionTime)
 		{
