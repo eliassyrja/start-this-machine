@@ -47088,7 +47088,7 @@ GameObject:
   - component: {fileID: 4809175414204806935}
   - component: {fileID: 5414149056669217983}
   m_Layer: 0
-  m_Name: Dashboards 02
+  m_Name: Dashboard 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
