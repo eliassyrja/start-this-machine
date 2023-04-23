@@ -105,5 +105,13 @@ public class CameraController : MonoBehaviour
 		}
 
 	}
+
+	public void SetSensitivity(float _sensitivity)
+	{
+		if(_sensitivity > 0)
+		{
+			sensitivity = _sensitivity;
+		}
+	}
 	
 }

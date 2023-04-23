@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004785304, g: 0.0041427794, b: 0.0032543563, a: 1}
+  m_IndirectSpecularColor: {r: 0.0047854423, g: 0.0041425633, b: 0.003254949, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -41648,6 +41648,17 @@ Transform:
   m_Father: {fileID: 1165289322}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865277377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1113280979442201394, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+  m_PrefabInstance: {fileID: 5982934419178832147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc7d41d0ad81b547a53c0b687686561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1865642884
 GameObject:
   m_ObjectHideFlags: 0
@@ -42677,6 +42688,11 @@ Transform:
   m_Father: {fileID: 6652619170081084721}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1973797696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7689182852174432704, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+  m_PrefabInstance: {fileID: 5982934419178832147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1988444853
 GameObject:
   m_ObjectHideFlags: 0
@@ -50116,6 +50132,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1485189185}
     m_Modifications:
+    - target: {fileID: 1113280979442201394, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: valueText
+      value: 
+      objectReference: {fileID: 1973797696}
+    - target: {fileID: 3728417828374001870, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728417828374001870, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728417828374001870, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1865277377}
+    - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMouseSensitivity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SensitivityController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5982934418353698340, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -50208,6 +50268,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1948818817}
+    - target: {fileID: 7590350884596368516, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_Name
+      value: Sensitivity Slider
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641107924673474519, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641107924673474519, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
