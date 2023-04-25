@@ -8,7 +8,9 @@ public class ToggleSwitch : MonoBehaviour
 {
 	public bool switchState;
 	private bool clickable;
+	public bool isPowerSwitch;
 	[SerializeField] private float transitionTime;
+	public Light lightIndicator;
 	private AudioController audioController;
 
 	private StateMachine stateMachine;
@@ -25,6 +27,7 @@ public class ToggleSwitch : MonoBehaviour
 		//Initialize button state to be false = off
 		switchState = false;
 		clickable = true;
+		lightIndicator.enabled = false;
 	}
 
 	private void OnMouseOver()
@@ -44,24 +47,36 @@ public class ToggleSwitch : MonoBehaviour
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(-22, 0, 0), Quaternion.Euler(22, 0, 0), transitionTime));
 			switchState = false;
 			Debug.Log("ToggleSwitch off");
-			SwitchStateEvent(false);
+
+			if (GameController.powerOn || isPowerSwitch)
+			{
+				lightIndicator.enabled = true;
+				SwitchStateEvent(false);
+			}
 		}
 		else
 		{
 			StartCoroutine(ChangeRotationSmoothly(Quaternion.Euler(22, 0, 0), Quaternion.Euler(-22, 0, 0), transitionTime));
 			switchState = true;
 			Debug.Log("ToggleSwitch on");
-			SwitchStateEvent(true);
+
+			if (GameController.powerOn || isPowerSwitch)
+			{
+				lightIndicator.enabled = true;
+				SwitchStateEvent(true);
+			}
 		}
 	}
 	public void SwitchStateEvent(bool state)
 	{
 		if (state)
 		{
+			lightIndicator.color = Color.green;
 			switchOnEvent.Invoke();
 		}
 		else
 		{
+			lightIndicator.color = Color.red;
 			switchOffEvent.Invoke();
 		}
 	}

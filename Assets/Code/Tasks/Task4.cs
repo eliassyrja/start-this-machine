@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Task4 : Task
 {
-    [SerializeField] private GameObject fuelSwitch;
-    [SerializeField] private GameObject tempSwitch;
-    [SerializeField] private GameObject airSwitch;
+    [SerializeField] private GameObject powerSwitch;
 
     public override bool CheckTaskState()
     {
-        if (fuelSwitch.GetComponent<ToggleSwitch>().switchState && tempSwitch.GetComponent<ToggleSwitch>().switchState && airSwitch.GetComponent<ToggleSwitch>().switchState)
-        {
+		if (powerSwitch.GetComponent<ToggleSwitch>().switchState)
+		{
             // Additional functionality here
 
             return true;
-        }
-        else
-        {
-            return false;
-        }
+		}
+		else
+		{
+			return false;
+		}
     }
 }

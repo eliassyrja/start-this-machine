@@ -8,7 +8,7 @@ public class Task1 : Task
 
     public override bool CheckTaskState()
     {
-        if (powerSwitch.GetComponent<ToggleSwitch>().switchState)
+        if (powerSwitch.GetComponent<RockerSwitch>().buttonState)
         {
             // Additional functionality here
 
