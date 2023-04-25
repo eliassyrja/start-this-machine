@@ -139,42 +139,4 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void TurnPowerOn()
-	{
-        foreach (Light light in lights)
-        {
-            light.enabled = true;
-        }
-        foreach (ToggleSwitch button in buttons)
-        {
-            if (!button.isPowerSwitch)
-            {
-                //Invokes button onClick() -related events when power is received
-                button.SwitchStateEvent(button.switchState);
-            }
-        }
-        powerOn = true;
-        Debug.Log(powerOn);
-    }
-    public void TurnPowerOff()
-    {
-        foreach (Light light in lights)
-        {
-            light.enabled = false;
-        }
-        foreach (ToggleSwitch button in buttons)
-		{
-			if (!button.isPowerSwitch)
-			{
-                //Invokes button onClick() -related events when power is received
-                button.SwitchStateEvent(button.switchState);
-            }
-			else
-			{
-                button.lightIndicator.enabled = true;
-			}
-		}
-        powerOn = false;
-        Debug.Log(powerOn);
-    }
 }

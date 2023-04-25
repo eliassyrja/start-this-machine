@@ -7,7 +7,6 @@ public class Task3 : Task
     [SerializeField] private GameObject fuelFlowValve1;
     [SerializeField] private GameObject fuelFlowValve2;
     [SerializeField] private GameObject fuelFlowValve3;
-    [SerializeField] private GameObject switchPumpOnButton; //Acts as enter
 
 
     public override bool CheckTaskState()
