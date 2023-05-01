@@ -25469,7 +25469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &853570262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38450,7 +38450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1485189185
 Transform:
   m_ObjectHideFlags: 0
@@ -50495,15 +50495,15 @@ PrefabInstance:
       objectReference: {fileID: 1973797696}
     - target: {fileID: 3728417828374001870, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.4871795
       objectReference: {fileID: 0}
     - target: {fileID: 3728417828374001870, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3728417828374001870, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.4871795
       objectReference: {fileID: 0}
     - target: {fileID: 4881559575687226709, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -50631,11 +50631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7641107924673474519, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.4871795
       objectReference: {fileID: 0}
     - target: {fileID: 7641107924673474519, guid: 2a552e09e730ffe41bace13bef978c77, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
